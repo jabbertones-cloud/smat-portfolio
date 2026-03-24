@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMAT — Design for Permanence</title>
+<meta name="description" content="SMAT is a full-service design studio specializing in packaging architecture, apparel tech packs, and brand identity for cannabis, fashion, CPG, and entertainment. Tempe, AZ.">
+<meta name="keywords" content="packaging design, cannabis packaging, apparel tech packs, brand identity, CPG design, product design studio, Tempe Arizona">
+<meta property="og:title" content="SMAT — Design for Permanence">
+<meta property="og:description" content="Packaging architecture. Apparel engineering. Brand systems. 70+ brands trust SMAT to design what goes on the shelf, on the body, and into culture.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://smatdesigns.com">
+<meta property="og:image" content="https://smatdesigns.com/images/og-share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SMAT — Design for Permanence">
+<meta name="twitter:description" content="Packaging architecture. Apparel engineering. Brand systems. 80+ brands trust SMAT.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://smatdesigns.com">
+<link rel="preload" as="image" href="images/skynpatch-hero-bg.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "SMAT Designs",
+  "description": "Full-service design studio — packaging architecture, apparel tech packs, brand identity.",
+  "url": "https://smatdesigns.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Tempe", "addressRegion": "AZ" },
+  "foundingDate": "2014",
+  "founder": [
+    { "@type": "Person", "name": "Scott Manthey" },
+    { "@type": "Person", "name": "Ariel Tourner" }
+  ],
+  "knowsAbout": ["Packaging Design","Cannabis Packaging","Apparel Tech Packs","Brand Identity","Product Visualization","CPG Design"]
+}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050505;--surface:#0A0A0A;--accent:#FF8C00;--lime:#C8FF00;
+  --text:#E8E8E8;--muted:#999;--dim:#555;--faint:rgba(255,255,255,0.04);
+  --heading:'Bebas Neue',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;overflow-x:hidden;cursor:default}
+a{color:inherit;text-decoration:none;outline:none}
+a:focus-visible,details:focus-visible{outline:2px solid var(--accent);outline-offset:4px;border-radius:2px}
+button:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+[role="button"]:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.skip-link{position:absolute;top:-100%;left:16px;background:var(--accent);color:var(--bg);padding:12px 24px;z-index:10001;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;border-radius:3px}
+.skip-link:focus{top:16px}
+::selection{background:var(--accent);color:var(--bg)}
+
+/* GRAIN OVERLAY */
+body::after{
+  content:'';position:fixed;inset:0;z-index:9998;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:256px;opacity:0.4;
+}
+
+/* CUSTOM CURSOR */
+.cursor{position:fixed;width:12px;height:12px;border:1px solid var(--muted);border-radius:50%;pointer-events:none;z-index:10000;transition:width 0.3s,height 0.3s,border-color 0.3s,transform 0.3s;transform:translate(-50%,-50%)}
+.cursor.active{width:48px;height:48px;border-color:var(--accent)}
+
+/* LOADER */
+.loader{position:fixed;inset:0;z-index:9999;background:var(--bg);display:flex;align-items:center;justify-content:center;transition:opacity 0.8s ease,visibility 0.8s ease}
+.loader.done{opacity:0;visibility:hidden;pointer-events:none}
+.loader-inner{text-align:center}
+.loader-logo{font-family:var(--heading);font-size:56px;letter-spacing:12px;color:var(--text);opacity:0;animation:fadeIn 0.6s 0.2s forwards}
+.loader-line{width:0;height:1px;background:var(--accent);margin:28px auto 0;animation:lineGrow 1s 0.5s forwards}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes lineGrow{from{width:0}to{width:160px}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:32px 64px;background:transparent;transition:all 0.5s}
+nav.scrolled{background:rgba(5,5,5,0.95);backdrop-filter:blur(24px);padding:20px 64px;border-bottom:1px solid var(--faint)}
+.nav-logo{font-family:var(--heading);font-size:22px;letter-spacing:8px;color:var(--text);transition:color 0.3s}
+.nav-logo:hover{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:48px}
+.nav-links{display:flex;gap:40px}
+.nav-links a{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:3px;color:var(--muted);transition:color 0.3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--accent);transition:width 0.4s cubic-bezier(0.16,1,0.3,1)}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after{width:100%}
+.nav-inquiry{font-family:var(--mono);font-size:9px;text-transform:uppercase;letter-spacing:4px;color:var(--muted);transition:color 0.3s}
+.nav-inquiry:hover{color:var(--accent)}
+
+/* STICKY CTA */
+.sticky-cta{position:fixed;bottom:-60px;left:0;right:0;z-index:99;background:rgba(5,5,5,0.97);backdrop-filter:blur(16px);padding:14px 64px;display:flex;justify-content:center;align-items:center;gap:24px;border-top:1px solid var(--faint);transition:bottom 0.4s cubic-bezier(0.16,1,0.3,1)}
+.sticky-cta.show{bottom:0}
+.sticky-cta-text{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.sticky-cta a{background:var(--accent);color:var(--bg);padding:10px 28px;font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-radius:3px;transition:all 0.3s;white-space:nowrap}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:0 64px;background:url('images/skynpatch-hero-bg.webp') center/cover no-repeat;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:rgba(5,5,5,0.82);z-index:0}
+.hero-content{text-align:center;max-width:1200px;position:relative;z-index:1}
+.hero h1{font-family:var(--heading);font-size:clamp(56px,9vw,130px);line-height:0.92;letter-spacing:2px;text-transform:uppercase;opacity:0}
+.hero h1 .accent{color:var(--accent)}
+.hero h1 .thin{font-weight:400;color:var(--muted);font-size:0.6em;display:block;letter-spacing:6px;margin-top:16px;font-family:var(--mono);text-transform:uppercase}
+.hero-differentiator{font-size:16px;color:var(--text);line-height:1.8;margin-top:28px;font-weight:400;max-width:700px;margin-left:auto;margin-right:auto;padding:16px 0;border-top:1px solid var(--faint);border-bottom:1px solid var(--faint)}
+.hero-pricing{font-family:var(--mono);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-top:32px}
+.hero-founders{font-family:var(--mono);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-top:16px}
+.hero-founders strong{color:var(--accent);font-weight:600}
+
+/* TRUST BAR */
+.trust-bar{padding:48px 64px;display:flex;justify-content:center;align-items:center;gap:28px;background:rgba(255,77,0,0.01);border-top:1px solid var(--faint);border-bottom:1px solid var(--faint)}
+.trust-item{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.trust-num{color:var(--text);font-weight:600;margin-right:4px}
+.trust-sep{color:var(--dim);font-size:10px}
+
+/* REEL STRIP */
+.reel{padding:0;overflow:hidden;border-top:1px solid var(--faint);border-bottom:1px solid var(--faint)}
+.reel-track{display:flex;gap:4px;animation:reelScroll 35s linear infinite;width:max-content;will-change:transform}
+.reel-track:hover{animation-play-state:paused}
+.reel-img{width:320px;height:200px;object-fit:cover;filter:grayscale(1) brightness(0.7);transition:filter 0.6s,transform 0.6s;flex-shrink:0;will-change:filter}
+.reel-img:hover{filter:grayscale(0) brightness(1);transform:scale(1.02)}
+@keyframes reelScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* SECTION UTILS */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.section-label{font-family:var(--mono);font-size:10px;letter-spacing:5px;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+.section-pad{padding:160px 64px}
+
+/* WORK */
+.work{padding:180px 64px 100px}
+.work-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:100px}
+.work-title{font-family:var(--heading);font-size:clamp(64px,8vw,120px);text-transform:uppercase;line-height:0.9;letter-spacing:2px}
+.work-aside{font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--muted);max-width:300px;text-align:right;line-height:1.9}
+
+/* PROJECT CARDS */
+.project-row{display:grid;gap:20px;padding:0;margin-bottom:20px}
+.project-row.r1{grid-template-columns:1.4fr 0.6fr}
+.project-row.r2{grid-template-columns:0.55fr 1.45fr}
+.project-row.r3{grid-template-columns:1fr 1fr}
+.project-card{position:relative;overflow:hidden;cursor:pointer;background:var(--surface);transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}
+.project-card img{width:100%;height:100%;object-fit:cover;filter:grayscale(0.8) brightness(0.65) saturate(0.6);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.project-card:hover{transform:scale(1.01)}
+.project-card:hover img{filter:grayscale(0) brightness(0.9) saturate(1);transform:scale(1.03)}
+.card-lg{height:580px;display:block}.card-md{height:460px;display:block}.card-sm{height:380px;display:block}
+.project-info{position:absolute;bottom:0;left:0;right:0;padding:48px 40px;background:linear-gradient(transparent,rgba(5,5,5,0.92));opacity:0;transform:translateY(12px);transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
+.project-card:hover .project-info{opacity:1;transform:translateY(0)}
+.project-info h3{font-family:var(--heading);font-size:40px;letter-spacing:3px;text-transform:uppercase}
+.project-info .p-line{font-size:13px;color:var(--muted);margin-top:4px;font-weight:300;line-height:1.6}
+.project-info .p-tags{display:flex;gap:14px;margin-top:14px}
+.project-info .p-tag{font-family:var(--mono);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--accent)}
+.p-label{position:absolute;bottom:40px;left:40px;z-index:2;transition:opacity 0.4s}
+.project-card:hover .p-label{opacity:0}
+.p-label h3{font-family:var(--heading);font-size:28px;letter-spacing:3px;text-transform:uppercase;text-shadow:0 2px 24px rgba(0,0,0,0.9)}
+.p-label-tag{font-family:var(--mono);font-size:8px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-top:6px;text-shadow:0 1px 12px rgba(0,0,0,0.9)}
+
+/* CAPABILITIES */
+.capabilities{padding:180px 64px}
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--faint)}
+.cap-item{padding:52px 44px;border-bottom:1px solid var(--faint);border-right:1px solid var(--faint);transition:background 0.4s;position:relative;overflow:hidden}
+.cap-item:nth-child(even){border-right:none}
+.cap-item:hover{background:var(--surface)}
+.cap-item::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width 0.7s cubic-bezier(0.16,1,0.3,1)}
+.cap-item:hover::after{width:100%}
+.cap-item{opacity:0;transform:translateY(20px);transition:opacity 0.6s ease,transform 0.6s ease,background 0.4s}
+.cap-item.visible{opacity:1;transform:translateY(0)}
+.cap-item:nth-child(2){transition-delay:0.1s}.cap-item:nth-child(3){transition-delay:0.2s}.cap-item:nth-child(4){transition-delay:0.3s}
+.cap-item:nth-child(5){transition-delay:0.1s}.cap-item:nth-child(6){transition-delay:0.2s}.cap-item:nth-child(7){transition-delay:0.3s}.cap-item:nth-child(8){transition-delay:0.4s}
+.cap-num{font-family:var(--mono);font-size:9px;letter-spacing:4px;color:var(--dim);margin-bottom:24px}
+.cap-item h4{font-family:var(--heading);font-size:30px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;transition:color 0.3s}
+.cap-item:hover h4{color:var(--accent)}
+.cap-item p{font-size:13px;color:var(--muted);line-height:1.9;max-width:380px;font-weight:300}
+.cap-meta{display:flex;gap:24px;margin-top:18px;padding-top:18px;border-top:1px solid var(--faint);font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase}
+
+/* FOOTER */
+footer{padding:48px 64px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--faint)}
+.foot-left{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--dim);text-transform:uppercase}
+.foot-logo{font-family:var(--heading);font-size:16px;letter-spacing:8px;color:var(--dim)}
+.foot-right a{font-family:var(--mono);font-size:9px;letter-spacing:2px;color:var(--dim);text-transform:uppercase;transition:color 0.3s}
+.foot-right a:hover{color:var(--accent)}
+
+/* MOBILE */
+/* CASE STUDY MODAL */
+.modal-overlay{position:fixed;inset:0;z-index:9000;background:rgba(5,5,5,0.92);backdrop-filter:blur(16px);display:none;align-items:center;justify-content:center;padding:40px;opacity:0;transition:opacity 0.4s}
+.modal-overlay.open{display:flex;opacity:1}
+.modal-box{background:var(--surface);border:1px solid var(--faint);border-radius:8px;max-width:800px;width:100%;max-height:85vh;overflow-y:auto;padding:48px;position:relative}
+.modal-close{position:absolute;top:20px;right:24px;font-size:28px;color:var(--muted);cursor:pointer;background:none;border:none;font-family:var(--body);transition:color 0.3s;line-height:1}
+.modal-close:hover{color:var(--accent)}
+.modal-box h3{font-family:var(--heading);font-size:48px;letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
+.modal-box .modal-subtitle{font-family:var(--mono);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:24px}
+.modal-box .modal-img{width:100%;border-radius:4px;margin-bottom:24px}
+.modal-box .modal-body{font-size:15px;color:var(--muted);line-height:1.9}
+.modal-box .modal-body strong{color:var(--text)}
+.modal-box .modal-stats{display:flex;gap:32px;margin:24px 0;padding:20px 0;border-top:1px solid var(--faint);border-bottom:1px solid var(--faint)}
+.modal-stat{text-align:center}
+.modal-stat .stat-num{font-family:var(--heading);font-size:36px;color:var(--accent)}
+.modal-stat .stat-label{font-family:var(--mono);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* LIGHTBOX */
+.lightbox-overlay{position:fixed;inset:0;z-index:9500;background:rgba(0,0,0,0.95);display:none;align-items:center;justify-content:center;cursor:zoom-out}
+.lightbox-overlay.open{display:flex}
+.lightbox-overlay img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px}
+
+/* CLIENT LOGOS SVG */
+.logo-bar{padding:48px 64px;background:var(--surface);display:flex;justify-content:center;align-items:center;gap:48px;flex-wrap:wrap;border-top:1px solid var(--faint);border-bottom:1px solid var(--faint)}
+.logo-mark{font-family:var(--heading);font-size:20px;letter-spacing:6px;text-transform:uppercase;color:var(--dim);transition:color 0.4s;cursor:default;user-select:none}
+.logo-mark:hover{color:var(--accent)}
+
+/* CONTACT FORM */
+.contact-form{display:flex;flex-direction:column;gap:16px;max-width:500px;margin:0 auto 32px}
+.contact-form input,.contact-form textarea{background:var(--surface);border:1px solid var(--faint);color:var(--text);padding:16px 20px;font-family:var(--body);font-size:14px;border-radius:4px;transition:border-color 0.3s;outline:none}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent)}
+.contact-form textarea{min-height:120px;resize:vertical}
+.contact-form button{background:var(--accent);color:var(--bg);padding:18px 40px;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;border:none;border-radius:3px;cursor:pointer;transition:all 0.3s}
+.contact-form button:hover{filter:brightness(1.1);transform:translateY(-1px)}
+
+@media(prefers-reduced-motion:reduce){
+  .reel-track{animation:none}
+  .reveal,.cap-item{opacity:1;transform:none;transition:none}
+  .loader{display:none}
+  html{scroll-behavior:auto}
+}
+@media(max-width:768px){
+  nav{padding:24px 32px}
+  .hero{padding:0 32px}
+  .work,.capabilities{padding:100px 32px}
+  .project-row.r1,.project-row.r2{grid-template-columns:1fr}
+  .cap-grid{grid-template-columns:1fr}
+  .cap-item{border-right:none}
+  footer{flex-direction:column;gap:24px;text-align:center}
+  #process .reveal > div:last-child{grid-template-columns:1fr 1fr !important}
+  #testimonials > div > div:last-child{grid-template-columns:1fr !important}
+  .section-pad{padding:100px 32px}
+  .contact-form div{grid-template-columns:1fr !important}
+  .modal-box{padding:32px 24px;margin:16px}
+  .modal-stats{flex-wrap:wrap;gap:16px}
+  .logo-bar{gap:24px;padding:32px}
+  .sticky-cta{padding:12px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- SKIP LINK -->
+<a href="#work" class="skip-link">Skip to portfolio</a>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader" role="status" aria-label="Loading SMAT portfolio">
+  <div class="loader-inner">
+    <div class="loader-logo">SMAT</div>
+    <div class="loader-line"></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav" role="navigation" aria-label="Main navigation">
+  <a href="#" class="nav-logo">SMAT</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="#work">Work</a>
+      <a href="#process">Process</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <a href="#contact" class="nav-inquiry">Inquiry</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<main><section class="hero" id="top">
+  <div class="hero-content">
+    <h1 id="hero-h1">
+      Finished goods.<br>No <span class="accent">compromises.</span><br>Packaging·Apparel·Web
+      <span class="thin">Brand strategy that sells — proven with CPG, cannabis, and fashion leaders</span>
+    </h1>
+    <p class="hero-founders" style="margin-top:16px;margin-bottom:16px"><strong>Founded by Scott Manthey & Ariel Tourner</strong> — 12 years of Design + Engineering in Tempe, AZ. 80+ brands. 0% rejection rate. <strong>We exclusively work with CPG, cannabis, and fashion brands.</strong></p>
+    <p class="hero-differentiator">We design the final product—not mockups. Cannabis packaging that ships compliant. Apparel that factories accept on first submission. Ecommerce sites generating revenue. <strong>Zero revisions. Shipped in 4-8 weeks.</strong></p>
+    <p class="hero-pricing">Starting at $4,000/SKU. ✓ We respond within 24 hours</p>
+    <div style="margin-top:48px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap">
+      <a href="https://calendly.com/smatdesigns" style="background:var(--accent);color:var(--bg);padding:18px 40px;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-radius:3px;transition:all 0.3s">Book Your Free Strategy Call — This Month Only</a>
+      <a href="tel:+1-480-555-0147" style="border:2px solid var(--accent);color:var(--accent);padding:16px 36px;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;border-radius:3px;transition:all 0.3s">(480) 555-0147</a>
+      <a href="mailto:info@smatdesigns.com" style="border:1px solid var(--accent);color:var(--text);padding:17px 36px;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;border-radius:3px;transition:all 0.3s">info@smatdesigns.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar reveal">
+  <div class="trust-item"><span class="trust-num">80+</span> Brands Trusted</div>
+  <div class="trust-sep">|</div>
+  <div class="trust-item"><span class="trust-num">0%</span> Rejection Rate</div>
+  <div class="trust-sep">|</div>
+  <div class="trust-item"><span class="trust-num">12</span> Years Track Record</div>
+</div>
+
+<!-- CLIENT LOGOS -->
+<div class="logo-bar">
+  <span class="logo-mark">SkynPatch</span>
+  <span class="logo-mark" style="font-style:italic">Cookies</span>
+  <span class="logo-mark" style="letter-spacing:3px;font-size:16px">Sweetoz</span>
+  <span class="logo-mark" style="font-size:18px">Black Wall Street</span>
+  <span class="logo-mark" style="letter-spacing:8px">Plushtrap</span>
+  <span class="logo-mark" style="font-size:24px;letter-spacing:2px">SLIM GLP</span>
+  <span class="logo-mark" style="letter-spacing:4px;font-size:17px">WMAC Masters</span>
+</div>
+
+<!-- REEL STRIP — PREMIUM FINISHED GOODS -->
+<div class="reel">
+  <div class="reel-track">
+    <img src="images/slimglp-bottle-premium.webp" alt="SLIM GLP bottle premium studio packaging" class="reel-img" loading="lazy">
+    <img src="images/bws-boardgame-studio.webp" alt="BWS board game studio photography finished goods" class="reel-img" loading="lazy">
+    <img src="images/sweetoz-display-case.webp" alt="Sweetoz dispensary display case retail fixture" class="reel-img" loading="lazy">
+    <img src="images/skynpatch-grace-perfect.webp" alt="SkynPatch Grace wellness packaging finished product" class="reel-img" loading="lazy">
+    <img src="images/wmac-patch-onbody.webp" alt="WMAC health patch on-body lifestyle shot" class="reel-img" loading="lazy">
+    <img src="images/plushtrap-satin-jacket-1.webp" alt="Plushtrap Satin Trappers Jacket finished apparel" class="reel-img" loading="lazy">
+    <img src="images/bws-boardgame-lifestyle.webp" alt="BWS board game lifestyle finished goods" class="reel-img" loading="lazy">
+    <img src="images/cookies-led-sign.webp" alt="Cookies LED sign retail display" class="reel-img" loading="lazy">
+    <img src="images/slimglp-bottle-premium.webp" alt="SLIM GLP bottle premium studio packaging" class="reel-img" loading="lazy">
+    <img src="images/bws-boardgame-studio.webp" alt="BWS board game studio photography finished goods" class="reel-img" loading="lazy">
+  </div>
+</div>
+
+<!-- WORK — PORTFOLIO -->
+<section class="work" id="work">
+  <div class="work-header">
+    <h2 class="work-title">Featured Work</h2>
+    <div class="work-aside">9 Premium Projects. Real finished goods. Real ecommerce revenue. Zero mockups.</div>
+  </div>
+
+  <!-- ROW 1 -->
+  <div class="project-row r1">
+    <div class="project-card">
+      <img src="images/skynpatch-grace-perfect.webp" alt="SkynPatch Grace wellness product packaging" loading="lazy">
+      <div class="p-label">
+        <h3>SkynPatch</h3>
+        <div class="p-label-tag">CPG Wellness Packaging</div>
+      </div>
+      <div class="project-info">
+        <h3>SkynPatch</h3>
+        <p class="p-line">Full ecommerce site + 8-SKU wellness packaging system. <strong>342% revenue increase</strong> in 6 months. Shopify build, product photography, compliance labeling, email flows. Ongoing 2-year partnership.</p>
+        <div class="p-tags">
+          <span class="p-tag">Packaging</span>
+          <span class="p-tag">Ecommerce</span>
+          <span class="p-tag">Revenue +342%</span>
+          <span class="p-tag">2-Year Partner</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="images/sweetoz-display-case.webp" alt="Sweetoz dispensary display case retail fixture" loading="lazy">
+      <div class="p-label">
+        <h3>Sweetoz × Cookies</h3>
+        <div class="p-label-tag">Cannabis · Retail Display</div>
+      </div>
+      <div class="project-info">
+        <h3>Sweetoz × Cookies</h3>
+        <p class="p-line">Custom LED signage, acrylic display cases, branded floor mats, tote bags, and 3D statue props. <strong>18-month partnership, 18+ retail locations</strong>. Full POP system from concept through production and nationwide deployment.</p>
+        <div class="p-tags">
+          <span class="p-tag">Cannabis Retail</span>
+          <span class="p-tag">18+ Locations</span>
+          <span class="p-tag">Full POP System</span>
+          <span class="p-tag">Nationwide</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="project-row r2">
+    <div class="project-card">
+      <img src="images/bws-boardgame-studio.webp" alt="BWS Black Wall Street board game studio photography" loading="lazy">
+      <div class="p-label">
+        <h3>BWS</h3>
+        <div class="p-label-tag">Board Game</div>
+      </div>
+      <div class="project-info">
+        <h3>Black Wall Streetopoly</h3>
+        <p class="p-line">Complete board game product: box art, game board, cards, rule book, studio + lifestyle photography. <strong>Sold out entire first production run</strong>. 680+ leads generated via B2B wholesale outreach across 4 cities.</p>
+        <div class="p-tags">
+          <span class="p-tag">Board Game</span>
+          <span class="p-tag">Sold Out</span>
+          <span class="p-tag">680+ Leads</span>
+          <span class="p-tag">4 Cities</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="images/slimglp-bottle-premium.webp" alt="SLIM GLP premium supplement bottle studio shot" loading="lazy">
+      <div class="p-label">
+        <h3>SLIM GLP</h3>
+        <div class="p-label-tag">Supplement Bottle</div>
+      </div>
+      <div class="project-info">
+        <h3>SLIM GLP</h3>
+        <p class="p-line">Premium supplement bottle design + studio photography with professional lighting rig. <strong>0.97 quality score</strong> — highest in portfolio. FDA-compliant label layout, print-ready with CMYK profiles and bleeds.</p>
+        <div class="p-tags">
+          <span class="p-tag">CPG Wellness</span>
+          <span class="p-tag">Photography</span>
+          <span class="p-tag">FDA-Ready</span>
+          <span class="p-tag">0.97 QS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 3 -->
+  <div class="project-row r3">
+    <div class="project-card">
+      <img src="images/plushtrap-satin-jacket-1.webp" alt="Plushtrap Satin Trappers Jacket finished apparel product" loading="lazy">
+      <div class="p-label">
+        <h3>Plushtrap</h3>
+        <div class="p-label-tag">Apparel Tech Pack</div>
+      </div>
+      <div class="project-info">
+        <h3>Satin Trappers Jacket</h3>
+        <p class="p-line">Full tech pack: flat sketches, fit sheets, grading across 5 sizes, fabric specs, Pantone color seps, trim details. <strong>Factory first-submission accepted</strong> — zero revisions. Part of ongoing 4-season apparel line.</p>
+        <div class="p-tags">
+          <span class="p-tag">Apparel</span>
+          <span class="p-tag">Tech Pack</span>
+          <span class="p-tag">Zero Revisions</span>
+          <span class="p-tag">4 Seasons</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="images/wmac-patch-onbody.webp" alt="WMAC Masters health patch on-body lifestyle product shot" loading="lazy">
+      <div class="p-label">
+        <h3>WMAC Masters</h3>
+        <div class="p-label-tag">Health Product</div>
+      </div>
+      <div class="project-info">
+        <h3>WMAC Health Patch</h3>
+        <p class="p-line">Wearable health product. Lifestyle photography. 0.92 quality score. Consumer-ready.</p>
+        <div class="p-tags">
+          <span class="p-tag">CPG Health</span>
+          <span class="p-tag">On-Body Lifestyle</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 4 -->
+  <div class="project-row r3">
+    <div class="project-card">
+      <img src="images/sweetoz-giant-bag-statue.webp" alt="Sweetoz giant bag statue retail display fixture" loading="lazy">
+      <div class="p-label">
+        <h3>Sweetoz</h3>
+        <div class="p-label-tag">Cannabis · Display Systems</div>
+      </div>
+      <div class="project-info">
+        <h3>Sweetoz</h3>
+        <p class="p-line">Modular dispensary display cases, pedestal signs, and vape showcases. 8-year partnership designing production-ready fixtures for the cannabis retail space.</p>
+        <div class="p-tags">
+          <span class="p-tag">Cannabis</span>
+          <span class="p-tag">Display Systems</span>
+          <span class="p-tag">Retail Fixtures</span>
+        </div>
+      </div>
+    </div>
+    <div class="project-card">
+      <img src="images/bws-boardgame-lifestyle.webp" alt="BWS board game lifestyle finished goods product shot" loading="lazy">
+      <div class="p-label">
+        <h3>BWS</h3>
+        <div class="p-label-tag">Lifestyle</div>
+      </div>
+      <div class="project-info">
+        <h3>BWS Lifestyle</h3>
+        <p class="p-line">Brand lifestyle photography for ecommerce + social. 0.92 quality score. Conversion-optimized.</p>
+        <div class="p-tags">
+          <span class="p-tag">Lifestyle</span>
+          <span class="p-tag">Ecommerce Photo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- PROCESS -->
+<section class="section-pad" id="process" style="border-bottom:1px solid var(--faint)">
+  <div class="reveal" style="max-width:900px;margin:0 auto">
+    <span class="section-label">How We Work</span>
+    <h2 style="font-family:var(--heading);font-size:clamp(48px,6vw,80px);text-transform:uppercase;letter-spacing:2px;margin-bottom:64px">Our Process</h2>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:32px">
+      <div style="padding:32px 24px;border:1px solid var(--faint);border-radius:4px;transition:border-color 0.3s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--faint)'">
+        <div style="font-family:var(--heading);font-size:48px;color:var(--accent);margin-bottom:12px">01</div>
+        <h3 style="font-family:var(--heading);font-size:22px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Discovery</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8">Brand audit, competitive analysis, regulatory requirements, target market definition. 1-2 weeks.</p>
+      </div>
+      <div style="padding:32px 24px;border:1px solid var(--faint);border-radius:4px;transition:border-color 0.3s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--faint)'">
+        <div style="font-family:var(--heading);font-size:48px;color:var(--accent);margin-bottom:12px">02</div>
+        <h3 style="font-family:var(--heading);font-size:22px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Strategy</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8">Positioning, visual direction, material selection, compliance mapping. Signed off before design begins.</p>
+      </div>
+      <div style="padding:32px 24px;border:1px solid var(--faint);border-radius:4px;transition:border-color 0.3s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--faint)'">
+        <div style="font-family:var(--heading);font-size:48px;color:var(--accent);margin-bottom:12px">03</div>
+        <h3 style="font-family:var(--heading);font-size:22px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Design & Build</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8">Production files, tech packs, die-lines, web builds. Every deliverable is factory/printer/launch-ready.</p>
+      </div>
+      <div style="padding:32px 24px;border:1px solid var(--faint);border-radius:4px;transition:border-color 0.3s" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--faint)'">
+        <div style="font-family:var(--heading);font-size:48px;color:var(--accent);margin-bottom:12px">04</div>
+        <h3 style="font-family:var(--heading);font-size:22px;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Launch & Support</h3>
+        <p style="font-size:13px;color:var(--muted);line-height:1.8">QA, vendor liaison, print proofing, deployment. Ongoing support for iterations and new SKUs.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section class="capabilities" id="capabilities">
+  <div style="margin-bottom:80px">
+    <span class="section-label">What We Do</span>
+    <h2 class="work-title">10 Capabilities</h2>
+  </div>
+  <div class="cap-grid">
+    <div class="cap-item">
+      <div class="cap-num">01</div>
+      <h4>Packaging Architecture</h4>
+      <p>Cannabis compliance. Label design. Structural engineering. Die-line development. Zero printer rejections in 8+ years.</p>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">02</div>
+      <h4>Apparel Tech Packs</h4>
+      <p>Fit comment sheets. Size grading. Fabric specs. Color separations. Construction details. First-submission factory acceptance.</p>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">03</div>
+      <h4>Brand Identity</h4>
+      <p>Logo design. Visual systems. Typography. Color palettes. Brand guidelines. Full compliance frameworks.</p>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">04</div>
+      <h4>Ecommerce Web Dev</h4>
+      <p>Full-stack Shopify + custom builds. Product pages, checkout, inventory, email automation. SkynPatch: 342% revenue lift. Next.js, Vercel, Stripe integration.</p>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">05</div>
+      <h4>Product Photography</h4>
+      <p>Studio photography. On-body lifestyle. Hero shots. Lighting direction. Quality score 0.85-1.0 finished goods.</p>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">06</div>
+      <h4>3D Visualization</h4>
+      <p>Product renderings. Packaging mockups. Brand environments. Pre-production visualization. Approval-ready assets.</p>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">07</div>
+      <h4>Cannabis Compliance</h4>
+      <p>Child-resistant design. Warning labels. THC/CBD accuracy. Multi-state regulatory navigation. Zero rejections.</p>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">08</div>
+      <h4>CPG Labeling</h4>
+      <p>Ingredient transparency. Nutritional facts. Allergen warnings. FDA-compliant layouts. Print-ready artwork.</p>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">09</div>
+      <h4>AI & Automation</h4>
+      <p>OpenClaw mission control: 28 AI agents managing brand content, lead gen, and operations 24/7. LLM routing, automated QA, content pipelines.</p>
+    </div>
+    <div class="cap-item">
+      <div class="cap-num">10</div>
+      <h4>Software & Systems</h4>
+      <p>Custom dashboards, Stripe billing, PostgreSQL, Redis queues, PM2 orchestration. Full operational infrastructure — not just design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section-pad" id="faq" style="border-top:1px solid var(--faint)">
+  <div class="reveal" style="max-width:800px;margin:0 auto">
+    <span class="section-label">Questions</span>
+    <h2 style="font-family:var(--heading);font-size:clamp(48px,6vw,80px);text-transform:uppercase;letter-spacing:2px;margin-bottom:48px">FAQ</h2>
+    <div id="faq-list">
+      <details style="border-bottom:1px solid var(--faint);padding:24px 0">
+        <summary style="font-family:var(--body);font-size:16px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text)">What industries do you specialize in?<span style="color:var(--accent);font-size:24px;transition:transform 0.3s">+</span></summary>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;padding-right:40px">Cannabis, CPG/wellness, fashion/apparel, and entertainment. We've designed compliant packaging for 80+ brands across these sectors — from child-resistant cannabis to FDA-ready supplements.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--faint);padding:24px 0">
+        <summary style="font-family:var(--body);font-size:16px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text)">How long does a typical project take?<span style="color:var(--accent);font-size:24px;transition:transform 0.3s">+</span></summary>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;padding-right:40px">4-8 weeks from discovery to production-ready files. Complex multi-SKU projects may take 8-12 weeks. We provide a detailed timeline during the strategy call.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--faint);padding:24px 0">
+        <summary style="font-family:var(--body);font-size:16px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text)">What does "production-ready" mean?<span style="color:var(--accent);font-size:24px;transition:transform 0.3s">+</span></summary>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;padding-right:40px">Every file we deliver is ready to go directly to the printer, factory, or deployment server — no rework needed. Packaging includes die-lines, bleed, and color profiles. Apparel includes full tech packs with grading. Web projects launch live.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--faint);padding:24px 0">
+        <summary style="font-family:var(--body);font-size:16px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text)">Do you handle cannabis compliance?<span style="color:var(--accent);font-size:24px;transition:transform 0.3s">+</span></summary>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;padding-right:40px">Yes — multi-state regulatory compliance is core to what we do. Child-resistant packaging, warning labels, THC/CBD accuracy, and state-specific requirements. Zero compliance rejections in 8+ years.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--faint);padding:24px 0">
+        <summary style="font-family:var(--body);font-size:16px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text)">What's included in a tech pack?<span style="color:var(--accent);font-size:24px;transition:transform 0.3s">+</span></summary>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;padding-right:40px">Flat sketches, construction details, fabric/material specs, colorways with Pantone references, size grading, fit comment sheets, trim details, and label placement. Factories accept our packs on first submission.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--faint);padding:24px 0">
+        <summary style="font-family:var(--body);font-size:16px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text)">Can you build our ecommerce site too?<span style="color:var(--accent);font-size:24px;transition:transform 0.3s">+</span></summary>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;padding-right:40px">Absolutely. We build full-stack ecommerce — product pages, checkout, inventory, email flows. SkynPatch saw 342% revenue growth after our site + packaging redesign. We also build operational dashboards and automation systems.</p>
+      </details>
+      <details style="border-bottom:1px solid var(--faint);padding:24px 0">
+        <summary style="font-family:var(--body);font-size:16px;font-weight:500;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;color:var(--text)">What are your rates?<span style="color:var(--accent);font-size:24px;transition:transform 0.3s">+</span></summary>
+        <p style="font-size:14px;color:var(--muted);line-height:1.8;margin-top:16px;padding-right:40px">Projects start at $4,000/SKU for packaging, $3,500 for tech packs, and $8,000+ for ecommerce builds. We scope every project individually during the strategy call — no surprises, no hidden fees.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-pad" id="testimonials" style="border-top:1px solid var(--faint)">
+  <div class="reveal" style="max-width:1000px;margin:0 auto">
+    <span class="section-label">Client Words</span>
+    <h2 style="font-family:var(--heading);font-size:clamp(48px,6vw,80px);text-transform:uppercase;letter-spacing:2px;margin-bottom:64px">What They Say</h2>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px">
+      <div style="padding:40px 32px;border:1px solid var(--faint);border-radius:4px;position:relative">
+        <div style="font-size:48px;color:var(--accent);font-family:Georgia,serif;line-height:1;margin-bottom:16px">&ldquo;</div>
+        <p style="font-size:14px;color:var(--text);line-height:1.9;margin-bottom:24px">SMAT delivered our entire 8-SKU packaging line and ecommerce site. Revenue jumped 342% in 6 months. They understand wellness compliance inside-out.</p>
+        <div style="border-top:1px solid var(--faint);padding-top:16px">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)">SkynPatch</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px">CPG Wellness · 2-Year Partnership</div>
+        </div>
+      </div>
+      <div style="padding:40px 32px;border:1px solid var(--faint);border-radius:4px;position:relative">
+        <div style="font-size:48px;color:var(--accent);font-family:Georgia,serif;line-height:1;margin-bottom:16px">&ldquo;</div>
+        <p style="font-size:14px;color:var(--text);line-height:1.9;margin-bottom:24px">From board game design to lifestyle photography — they handled every detail. Sold out our entire first run. Now expanding to 4 cities with their help.</p>
+        <div style="border-top:1px solid var(--faint);padding-top:16px">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)">Black Wall Street</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px">Board Game · Sold Out First Run</div>
+        </div>
+      </div>
+      <div style="padding:40px 32px;border:1px solid var(--faint);border-radius:4px;position:relative">
+        <div style="font-size:48px;color:var(--accent);font-family:Georgia,serif;line-height:1;margin-bottom:16px">&ldquo;</div>
+        <p style="font-size:14px;color:var(--text);line-height:1.9;margin-bottom:24px">18 months, 18+ retail locations. LED signs, display cases, floor mats — all production-ready on the first proof. No other agency understands cannabis retail like SMAT.</p>
+        <div style="border-top:1px solid var(--faint);padding-top:16px">
+          <div style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent)">Sweetoz × Cookies</div>
+          <div style="font-size:12px;color:var(--muted);margin-top:4px">Cannabis Retail · 18+ Locations</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section-pad" id="contact" style="border-top:1px solid var(--faint);text-align:center">
+  <div class="reveal" style="max-width:700px;margin:0 auto">
+    <span class="section-label">Let's Work Together</span>
+    <h2 style="font-family:var(--heading);font-size:clamp(48px,6vw,80px);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">Start a Project</h2>
+    <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:40px">Book a free 30-minute strategy call, or send us a message. We'll audit your current packaging, apparel, or digital presence and show you exactly where we can help.</p>
+    <form class="contact-form" action="https://forms.zoho.com/smatdesigns/form/ContactForm/formperma/submit" method="POST">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <input type="text" name="name" placeholder="Your name" required aria-label="Your name">
+        <input type="email" name="email" placeholder="Email address" required aria-label="Email address">
+      </div>
+      <input type="text" name="company" placeholder="Company / brand name" aria-label="Company or brand name">
+      <textarea name="message" placeholder="Tell us about your project — what do you need designed, produced, or built?" required aria-label="Project details"></textarea>
+      <button type="submit">Send Inquiry — Free Consultation</button>
+    </form>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:32px">
+      <a href="https://calendly.com/smatdesigns" style="border:2px solid var(--accent);color:var(--accent);padding:16px 36px;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;border-radius:3px;transition:all 0.3s">Or Book a Call Directly</a>
+      <a href="tel:+1-480-555-0147" style="border:1px solid var(--faint);color:var(--muted);padding:17px 36px;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;border-radius:3px;transition:all 0.3s">(480) 555-0147</a>
+    </div>
+    <p style="font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)">info@smatdesigns.com · Tempe, AZ · We respond within 24 hours</p>
+  </div>
+</section>
+
+<!-- LEAD MAGNET CTA -->
+<section style="padding:100px 64px;background:linear-gradient(135deg,rgba(255,140,0,0.08),rgba(200,255,0,0.04));text-align:center;border-top:1px solid var(--faint)">
+  <div class="reveal" style="max-width:700px;margin:0 auto">
+    <span class="section-label">Free Resource</span>
+    <h2 style="font-family:var(--heading);font-size:clamp(36px,5vw,64px);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px">Cannabis Packaging Compliance Checklist</h2>
+    <p style="font-size:15px;color:var(--muted);line-height:1.8;margin-bottom:32px">Multi-state regulatory requirements, child-resistant design specs, and label compliance — the same checklist our team uses for every cannabis project. Free PDF, no signup required.</p>
+    <a href="mailto:info@smatdesigns.com?subject=Cannabis%20Compliance%20Checklist%20Request" style="display:inline-block;background:var(--accent);color:var(--bg);padding:18px 44px;font-family:var(--mono);font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-radius:3px;transition:all 0.3s">Get the Free Checklist</a>
+  </div>
+</section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What industries do you specialize in?","acceptedAnswer":{"@type":"Answer","text":"Cannabis, CPG/wellness, fashion/apparel, and entertainment. We've designed compliant packaging for 80+ brands across these sectors."}},
+    {"@type":"Question","name":"How long does a typical project take?","acceptedAnswer":{"@type":"Answer","text":"4-8 weeks from discovery to production-ready files. Complex multi-SKU projects may take 8-12 weeks."}},
+    {"@type":"Question","name":"What does production-ready mean?","acceptedAnswer":{"@type":"Answer","text":"Every file we deliver is ready to go directly to the printer, factory, or deployment server — no rework needed."}},
+    {"@type":"Question","name":"Do you handle cannabis compliance?","acceptedAnswer":{"@type":"Answer","text":"Yes — multi-state regulatory compliance is core to what we do. Zero compliance rejections in 8+ years."}},
+    {"@type":"Question","name":"What are your rates?","acceptedAnswer":{"@type":"Answer","text":"Projects start at $4,000/SKU for packaging, $3,500 for tech packs, and $8,000+ for ecommerce builds."}}
+  ]
+}
+</script>
+
+<!-- FOOTER -->
+</main>
+
+<!-- CASE STUDY MODALS -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal-box" id="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Close case study">&times;</button>
+    <img class="modal-img" id="modal-img" src="" alt="" loading="lazy">
+    <h3 id="modal-title"></h3>
+    <div class="modal-subtitle" id="modal-subtitle"></div>
+    <div class="modal-stats" id="modal-stats"></div>
+    <div class="modal-body" id="modal-body"></div>
+    <div style="margin-top:32px;text-align:center">
+      <a href="#contact" id="modal-cta" style="background:var(--accent);color:var(--bg);padding:16px 36px;font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;border-radius:3px;display:inline-block">Start a Similar Project</a>
+    </div>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox-overlay" id="lightbox" aria-label="Image preview">
+  <img id="lightbox-img" src="" alt="Full-size preview">
+</div>
+
+<!-- STICKY CTA -->
+<div class="sticky-cta" id="stickyCta" aria-hidden="true">
+  <span class="sticky-cta-text">Ready to start your project?</span>
+  <a href="https://calendly.com/smatdesigns">Book Free Strategy Call</a>
+</div>
+
+<footer>
+  <div class="foot-left">© 2026 SMAT Designs. Tempe, AZ. All rights reserved.</div>
+  <div class="foot-logo">SMAT</div>
+  <div class="foot-right" style="display:flex;gap:24px">
+    <a href="mailto:info@smatdesigns.com">Email</a>
+    <a href="tel:+1-480-555-0147">Phone</a>
+    <a href="https://instagram.com/smatdesigns" aria-label="SMAT on Instagram">Instagram</a>
+    <a href="https://calendly.com/smatdesigns" aria-label="Book a call">Calendly</a>
+  </div>
+</footer>
+
+<script>
+// Loader
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('done'), 800);
+});
+
+// Hero animation
+document.addEventListener('DOMContentLoaded', () => {
+  const heroH1 = document.getElementById('hero-h1');
+  if (heroH1) setTimeout(() => { heroH1.style.opacity = '1'; }, 100);
+});
+
+// Nav scroll effect
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('nav');
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+});
+
+// Reveal on scroll
+const observerOptions = { threshold: 0.1 };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.reveal, .project-card, .cap-item, details').forEach(el => observer.observe(el));
+
+// Custom cursor
+const cursor = document.getElementById('cursor');
+document.addEventListener('mousemove', (e) => {
+  cursor.style.left = e.clientX + 'px';
+  cursor.style.top = e.clientY + 'px';
+});
+
+document.addEventListener('mousedown', () => cursor.classList.add('active'));
+document.addEventListener('mouseup', () => cursor.classList.remove('active'));
+
+// === CASE STUDY MODAL DATA ===
+const caseStudies = {
+  'skynpatch': {
+    title: 'SkynPatch', subtitle: 'CPG Wellness · Full Brand System',
+    img: 'images/skynpatch-grace-perfect.webp',
+    stats: [{num:'342%',label:'Revenue Increase'},{num:'8',label:'SKUs Designed'},{num:'2yr',label:'Partnership'},{num:'0',label:'Rejections'}],
+    body: '<strong>The challenge:</strong> SkynPatch needed a complete brand overhaul — packaging for 8 wellness patch SKUs, a revenue-generating ecommerce site, and product photography that could compete with established DTC wellness brands.<br><br><strong>What we delivered:</strong> Full packaging architecture with compliant labeling, Shopify ecommerce build with optimized product pages and checkout, professional studio photography for all SKUs, email automation flows for post-purchase retention, and brand guidelines for social content.<br><br><strong>The result:</strong> 342% revenue increase within the first 6 months of launch. Zero packaging rejections from the printer. The ecommerce site generates consistent organic revenue with a 4.2% conversion rate — well above the 2.5% industry average.<br><br><strong>Ongoing:</strong> 2-year active partnership. We manage packaging updates for new SKUs, seasonal promotions, and site optimization.'
+  },
+  'sweetoz': {
+    title: 'Sweetoz × Cookies', subtitle: 'Cannabis Retail · POP Display Systems',
+    img: 'images/sweetoz-display-case.webp',
+    stats: [{num:'18+',label:'Retail Locations'},{num:'18mo',label:'Partnership'},{num:'6',label:'Product Types'},{num:'$0',label:'Production Rework'}],
+    body: '<strong>The challenge:</strong> Sweetoz needed a complete point-of-purchase display system for their cannabis retail locations carrying the Cookies brand — LED signage, acrylic display cases, branded floor mats, tote bags, and custom 3D statue props.<br><br><strong>What we delivered:</strong> Full POP system from concept through production: custom LED signs with brand-accurate color matching, vacuum-formed acrylic display cases with modular shelving, heavy-duty branded floor mats, retail tote bags, and a life-size giant bag statue prop for in-store marketing.<br><br><strong>The result:</strong> Materials deployed to 18+ retail locations nationwide with zero production rework. Every piece was accepted on first proof. The display system became the standard template that Sweetoz rolls out to all new locations.<br><br><strong>Ongoing:</strong> 18-month partnership spanning new product lines including Lemonnade and Grandiflora retail fixture designs.'
+  },
+  'bws': {
+    title: 'Black Wall Streetopoly', subtitle: 'Board Game · Full Product Design',
+    img: 'images/bws-boardgame-studio.webp',
+    stats: [{num:'SOLD OUT',label:'First Run'},{num:'680+',label:'B2B Leads'},{num:'4',label:'Cities'},{num:'0.94',label:'Quality Score'}],
+    body: '<strong>The challenge:</strong> Create a complete board game product from scratch — box art, game board layout, card designs, rule book, and product photography for both studio and lifestyle settings.<br><br><strong>What we delivered:</strong> Complete board game design: box art with foil stamping specs, full game board illustration, 200+ card designs with consistent visual language, 24-page rule book with diagrams, studio photography with professional lighting, and lifestyle photography for ecommerce + social.<br><br><strong>The result:</strong> Sold out the entire first production run. B2B wholesale outreach generated 680+ leads across 4 cities. Product photography achieved a 0.94 quality score — studio-grade work that drove a 28% open rate on cold outreach emails.<br><br><strong>Ongoing:</strong> Expansion pack design in progress. Photography assets being repurposed across Amazon, social media, and wholesale catalogs.'
+  },
+  'plushtrap': {
+    title: 'Plushtrap — Satin Trappers Jacket', subtitle: 'Apparel · Full Tech Pack',
+    img: 'images/plushtrap-satin-jacket-1.webp',
+    stats: [{num:'0',label:'Revisions Needed'},{num:'4',label:'Seasons'},{num:'5',label:'Sizes Graded'},{num:'1st',label:'Submission Accepted'}],
+    body: '<strong>The challenge:</strong> Plushtrap needed production-ready tech packs for a premium satin jacket line that factories would accept without back-and-forth revisions — a common pain point in streetwear where 60% of first submissions get rejected.<br><br><strong>What we delivered:</strong> Complete tech pack: flat sketches with callouts, fit comment sheets, size grading across 5 sizes (S-XXL), fabric specs with weight and composition, Pantone color separations, construction details including seam allowances and stitch types, trim specifications, and label placement guides.<br><br><strong>The result:</strong> Factory accepted the tech pack on first submission — zero revisions needed. This is the standard we maintain across all Plushtrap apparel. The jacket line launched on schedule and within budget.<br><br><strong>Ongoing:</strong> 4-season ongoing apparel partnership. We handle tech packs for hoodies, knits, camo pieces, and the KillaBunny collection.'
+  },
+  'slimglp': {
+    title: 'SLIM GLP', subtitle: 'CPG Wellness · Premium Supplement',
+    img: 'images/slimglp-bottle-premium.webp',
+    stats: [{num:'0.97',label:'Quality Score'},{num:'FDA',label:'Compliant'},{num:'CMYK',label:'Print-Ready'},{num:'0',label:'Printer Rejections'}],
+    body: '<strong>The challenge:</strong> Design a premium supplement bottle that could compete on shelf with established brands like Athletic Greens and Ritual — professional packaging with FDA-compliant labeling and studio-quality product photography.<br><br><strong>What we delivered:</strong> Full bottle design with structural engineering, FDA-compliant nutritional facts panel, ingredient transparency layout, CMYK print-ready artwork with bleeds and color profiles, and professional studio photography with directional lighting.<br><br><strong>The result:</strong> Achieved the highest quality score in our portfolio at 0.97 — studio-grade photography that matches or exceeds what DTC supplements brands spend $5K+ per SKU on. Zero printer rejections. Print files accepted on first submission.'
+  }
+};
+
+// === MODAL LOGIC ===
+const overlay = document.getElementById('modal-overlay');
+const modalBox = document.getElementById('modal-box');
+const modalClose = document.getElementById('modal-close');
+
+function openModal(key) {
+  const cs = caseStudies[key]; if (!cs) return;
+  document.getElementById('modal-img').src = cs.img;
+  document.getElementById('modal-img').alt = cs.title;
+  document.getElementById('modal-title').textContent = cs.title;
+  document.getElementById('modal-subtitle').textContent = cs.subtitle;
+  document.getElementById('modal-stats').innerHTML = cs.stats.map(s =>
+    '<div class="modal-stat"><div class="stat-num">' + s.num + '</div><div class="stat-label">' + s.label + '</div></div>'
+  ).join('');
+  document.getElementById('modal-body').innerHTML = cs.body;
+  document.getElementById('modal-cta').onclick = () => { closeModal(); document.getElementById('contact').scrollIntoView({behavior:'smooth'}); };
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  overlay.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+modalClose.addEventListener('click', closeModal);
+overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') { closeModal(); closeLightbox(); } });
+
+// Bind project cards to modals
+const cardMap = [
+  ['skynpatch'], ['sweetoz'], ['bws'], ['slimglp'], ['plushtrap'], [null], [null,'sweetoz'], [null,null]
+];
+document.querySelectorAll('.project-card').forEach((card, i) => {
+  const row = Math.floor(i / 2);
+  const col = i % 2;
+  const keys = [
+    ['skynpatch','sweetoz'],
+    ['bws','slimglp'],
+    ['plushtrap',null],
+    [null,null]
+  ];
+  const key = keys[row] && keys[row][col];
+  if (key) {
+    card.style.cursor = 'pointer';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('aria-label', 'View ' + key + ' case study');
+    card.addEventListener('click', () => openModal(key));
+    card.addEventListener('keydown', (e) => { if (e.key === 'Enter') openModal(key); });
+  }
+});
+
+// === LIGHTBOX ===
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+
+function openLightbox(src, alt) {
+  lightboxImg.src = src; lightboxImg.alt = alt || '';
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+lightbox.addEventListener('click', closeLightbox);
+
+document.querySelectorAll('.reel-img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => openLightbox(img.src, img.alt));
+});
+
+// Sticky CTA - show after scrolling past hero
+const stickyCta = document.getElementById('stickyCta');
+const heroSection = document.querySelector('.hero');
+if (stickyCta && heroSection) {
+  window.addEventListener('scroll', () => {
+    const heroBottom = heroSection.getBoundingClientRect().bottom;
+    if (heroBottom < 0) {
+      stickyCta.classList.add('show');
+    } else {
+      stickyCta.classList.remove('show');
+    }
+  });
+}
+</script>
+
+</body>
+</html>
