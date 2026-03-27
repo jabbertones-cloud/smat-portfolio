@@ -18,6 +18,38 @@
 
     <title>SMAT Designs — Finished Goods. No Compromises.</title>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["ProfessionalService", "LocalBusiness"],
+      "name": "SMAT Designs",
+      "description": "Full-service design studio — packaging architecture, apparel tech packs, brand identity, and ecommerce for cannabis, CPG, fashion, and entertainment brands.",
+      "url": "https://smatdesigns.com",
+      "email": "info@smatdesigns.com",
+      "image": "https://smatdesigns.com/images/skynpatch-hero-bg.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Tempe",
+        "addressRegion": "AZ",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 33.4255,
+        "longitude": -111.9400
+      },
+      "foundingDate": "2014",
+      "founder": [
+        { "@type": "Person", "name": "Scott Manthey" },
+        { "@type": "Person", "name": "Ariel Tourner" }
+      ],
+      "knowsAbout": ["Packaging Design", "Cannabis Packaging", "Apparel Tech Packs", "Brand Identity", "Product Visualization", "CPG Design", "Ecommerce Development"],
+      "areaServed": "US",
+      "priceRange": "$$$$",
+      "sameAs": ["https://instagram.com/smatdesigns"]
+    }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -27,6 +59,37 @@
 
         html {
             scroll-behavior: smooth;
+        }
+
+        /* Keyboard focus styles — WCAG 2.1 AA */
+        a:focus-visible,
+        button:focus-visible,
+        summary:focus-visible,
+        [role="button"]:focus-visible,
+        .work-item:focus-visible {
+            outline: 2px solid #FF8C00;
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 16px;
+            background: #FF8C00;
+            color: #050505;
+            padding: 12px 24px;
+            z-index: 10001;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            border-radius: 3px;
+            text-decoration: none;
+        }
+
+        .skip-link:focus {
+            top: 16px;
         }
 
         body {
@@ -1461,6 +1524,9 @@
     </style>
 </head>
 <body>
+    <!-- SKIP LINK -->
+    <a href="#work" class="skip-link">Skip to portfolio</a>
+
     <!-- CUSTOM CURSOR -->
     <div class="cursor"></div>
 
@@ -1519,7 +1585,7 @@
             </p>
             <div class="hero-ctas">
                 <button class="btn btn-primary" onclick="window.open('https://calendly.com/smatdesigns', '_blank')">
-                    Book Your Free Strategy Call
+                    Book Your Free Strategy Call — This Month Only
                 </button>
                 <button class="btn btn-secondary" onclick="window.location.href='mailto:info@smatdesigns.com'">
                     Get in Touch
@@ -1594,7 +1660,7 @@
         <div class="section-label">PORTFOLIO</div>
         <h2 class="section-title">Featured Work</h2>
         <div class="work-grid">
-            <div class="work-item" onclick="openCaseStudy('skynpatch')">
+            <div class="work-item" role="button" tabindex="0" onclick="openCaseStudy('skynpatch')">
                 <img src="images/skynpatch-grace-perfect.webp" alt="SkynPatch" class="work-image" loading="lazy">
                 <div class="work-label">SkynPatch</div>
                 <div class="work-overlay">
@@ -1610,7 +1676,7 @@
                 </div>
             </div>
 
-            <div class="work-item" onclick="openCaseStudy('sweetoz')">
+            <div class="work-item" role="button" tabindex="0" onclick="openCaseStudy('sweetoz')">
                 <img src="images/sweetoz-display-case.webp" alt="Sweetoz" class="work-image" loading="lazy">
                 <div class="work-label">Sweetoz</div>
                 <div class="work-overlay">
@@ -1625,7 +1691,7 @@
                 </div>
             </div>
 
-            <div class="work-item" onclick="openCaseStudy('bws')">
+            <div class="work-item" role="button" tabindex="0" onclick="openCaseStudy('bws')">
                 <img src="images/bws-boardgame-studio.webp" alt="BWS" class="work-image" loading="lazy">
                 <div class="work-label">Black Wall Street</div>
                 <div class="work-overlay">
@@ -1640,7 +1706,7 @@
                 </div>
             </div>
 
-            <div class="work-item" onclick="openCaseStudy('slimglp')">
+            <div class="work-item" role="button" tabindex="0" onclick="openCaseStudy('slimglp')">
                 <img src="images/slimglp-bottle-premium.webp" alt="SLIM GLP" class="work-image" loading="lazy">
                 <div class="work-label">SLIM GLP</div>
                 <div class="work-overlay">
@@ -1655,7 +1721,7 @@
                 </div>
             </div>
 
-            <div class="work-item" onclick="openCaseStudy('plushtrap')">
+            <div class="work-item" role="button" tabindex="0" onclick="openCaseStudy('plushtrap')">
                 <img src="images/plushtrap-satin-jacket-1.webp" alt="Plushtrap" class="work-image" loading="lazy">
                 <div class="work-label">Plushtrap</div>
                 <div class="work-overlay">
@@ -1670,7 +1736,7 @@
                 </div>
             </div>
 
-            <div class="work-item" onclick="openCaseStudy('wmac')">
+            <div class="work-item" role="button" tabindex="0" onclick="openCaseStudy('wmac')">
                 <img src="images/wmac-patch-onbody.webp" alt="WMAC" class="work-image" loading="lazy">
                 <div class="work-label">WMAC Masters</div>
                 <div class="work-overlay">
@@ -1685,7 +1751,7 @@
                 </div>
             </div>
 
-            <div class="work-item" onclick="openCaseStudy('bws')">
+            <div class="work-item" role="button" tabindex="0" onclick="openCaseStudy('bws')">
                 <img src="images/bws-boardgame-lifestyle.webp" alt="BWS Lifestyle" class="work-image" loading="lazy">
                 <div class="work-label">BWS Lifestyle</div>
                 <div class="work-overlay">
@@ -1700,7 +1766,7 @@
                 </div>
             </div>
 
-            <div class="work-item" onclick="openCaseStudy('cookies')">
+            <div class="work-item" role="button" tabindex="0" onclick="openCaseStudy('cookies')">
                 <img src="images/cookies-led-sign.webp" alt="Cookies" class="work-image" loading="lazy">
                 <div class="work-label">Cookies</div>
                 <div class="work-overlay">
@@ -2646,6 +2712,16 @@
                 document.querySelector('.hamburger').classList.remove('active');
                 document.querySelector('.mobile-menu').classList.remove('active');
             }
+        });
+
+        // ========== KEYBOARD SUPPORT FOR WORK ITEMS ==========
+        document.querySelectorAll('.work-item[role="button"]').forEach(item => {
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    item.click();
+                }
+            });
         });
 
         // ========== CASE STUDY MODALS ==========
