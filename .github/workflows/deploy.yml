@@ -16,13 +16,13 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
-      - name: Build with next-on-pages
-        run: npx @cloudflare/next-on-pages
+      - name: Build static export
+        run: npm run build
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 793e209ea35f2e064b4b49b168a26c22
           projectName: smat-portfolio
-          directory: .vercel/output/static
+          directory: out
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
