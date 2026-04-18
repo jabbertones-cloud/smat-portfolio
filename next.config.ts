@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   output: "export",
@@ -6,9 +7,11 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  // Disable ESLint and TypeScript errors during build to prevent blocking deploys
   eslint: { ignoreDuringBuilds: true },
   typescript: { ignoreBuildErrors: true },
+  turbopack: {
+    root: path.resolve(__dirname),
+  },
 };
 
 export default nextConfig;
