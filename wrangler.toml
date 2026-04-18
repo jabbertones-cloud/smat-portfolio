@@ -1,0 +1,11 @@
+# ─── Cloudflare Pages — smat-portfolio ─────────────────────
+name = "smat-portfolio"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+[build]
+command = "npm run build"
+
+[env.production]
+vars = { NODE_ENV = "production" }
