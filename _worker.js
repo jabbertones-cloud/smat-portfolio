@@ -37,9 +37,6 @@ function upstreamRequest(request) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
-    // Hub asset bundle is versioned and deployed with SMAT Pages. Keep the
-    // storefront UI release independent from the legacy upstream asset cache.
-    if (url.pathname.startsWith('/hub/assets/')) return env.ASSETS.fetch(request);
     if (!isHubRequest(url.pathname)) return env.ASSETS.fetch(request);
 
     const response = await fetch(upstreamRequest(request));
