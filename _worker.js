@@ -37,6 +37,10 @@ function upstreamRequest(request) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/hub/') {
+      url.pathname = '/hub';
+      return Response.redirect(url.toString(), 308);
+    }
     if (!isHubRequest(url.pathname)) return env.ASSETS.fetch(request);
 
     const response = await fetch(upstreamRequest(request));
