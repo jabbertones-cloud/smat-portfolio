@@ -12,6 +12,7 @@ function isHubRequest(pathname) {
   return pathname === '/hub' || pathname.startsWith('/hub/')
     || pathname === '/webhooks/stripe'
     || pathname === '/api/stripe/webhook'
+    || pathname === '/api/webhooks/resend'
     || pathname === '/api/intelligence/hub-funnel'
     || pathname === '/api/intelligence/hub-conversions';
 }
@@ -20,7 +21,9 @@ function upstreamRequest(request) {
   const incoming = new URL(request.url);
   const upstreamPath = incoming.pathname === '/api/stripe/webhook'
     ? '/webhooks/stripe'
-    : incoming.pathname;
+    : incoming.pathname === '/api/webhooks/resend'
+      ? '/webhooks/resend'
+      : incoming.pathname;
   const upstream = new URL(upstreamPath + incoming.search, HUB_ORIGIN);
   const headers = new Headers(request.headers);
   headers.set('host', upstream.host);
