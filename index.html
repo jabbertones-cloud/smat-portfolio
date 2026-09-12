@@ -2560,16 +2560,15 @@
         const heroCtas = document.querySelector('.hero-ctas');
         const scrollIndicator = document.querySelector('.scroll-indicator');
 
-        const words = heroHeadline.innerHTML.split('<br>').map(line => {
-            return line.split(' ').map(word => `<span>${word}</span>`).join(' ');
-        }).join('<br>');
-        heroHeadline.innerHTML = words;
+        // Keep nested markup intact. Rewriting innerHTML here turns the accent
+        // span's attributes into visible text in the hero headline.
+        const headlineSpans = heroHeadline.querySelectorAll(':scope > span');
 
         const heroTl = gsap.timeline({
             delay: 1.2,
         });
 
-        heroTl.to(document.querySelectorAll('.hero-headline span'), {
+        heroTl.to(headlineSpans, {
             opacity: 1,
             duration: 0.6,
             stagger: 0.05,
