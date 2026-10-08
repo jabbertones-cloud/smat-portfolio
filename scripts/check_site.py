@@ -12,7 +12,7 @@ PAGES = ["index.html", "software/index.html", "services/index.html", "case-studi
          "contact/index.html", "privacy/index.html", "terms/index.html"]
 REQUIRED = {
  "index.html": ["SMAT Designs", "EzSeller", "AiSCent", "info@smatdesigns.com"],
- "software/index.html": ["EzSeller", "AiSCent", "LocalizeShots", "$39", "$99", "$249", "Amazon", "authorization", "WWDC MCP"],
+ "software/index.html": ["EzSeller", "AiSCent", "LocalizeShots", "$39", "$99", "$249", "Amazon", "authorization", "WWDC MCP", "ezseller.smatdesigns.com", "aiscentmcp.com", "wwdcmcp.smatdesigns.com"],
  "services/index.html": ["Software", "automation", "pricing", "custom quote"],
  "case-studies/index.html": ["First-party", "EzSeller", "AiSCent", "public GitHub repository"],
  "contact/index.html": ["Tempe", "Arizona", "SMAT Designs", "info@smatdesigns.com", "Scott Manthey", "Ariel Tourner"],
@@ -21,7 +21,7 @@ REQUIRED = {
 }
 BANNED = ["calendly.com/smatdesigns", "Sarah Chen", "Marcus Johnson", "Elena Rodriguez",
           "formsubmit.co", "alert('Sign up flow would be here')", "0% rejection rate",
-          "Best app", "#1 app"]
+          "Best app", "#1 app", "ezamazon.smatdesigns.com", "aiscent.smatdesigns.com"]
 
 class Parser(HTMLParser):
  def __init__(self):
