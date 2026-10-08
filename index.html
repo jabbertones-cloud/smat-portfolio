@@ -1522,7 +1522,17 @@
                 font-size: 32px;
             }
         }
-    /* Software + Amazon website verification update */
+    /* Narrow-screen footer regression: extra navigation links must wrap, not widen the viewport. */
+@media (max-width: 800px) {
+    footer .footer-content { width: 100%; max-width: 100%; gap: 16px; }
+    footer .footer-left, footer .footer-center, footer .footer-right { max-width: 100%; min-width: 0; overflow-wrap: anywhere; }
+    footer .footer-right { width: 100%; }
+    footer .footer-links {
+        display: flex; flex-wrap: wrap; width: 100%; max-width: 100%;
+        justify-content: center; align-items: center; gap: 10px 15px; padding: 0; margin: 0;
+    }
+}
+/* Software + Amazon website verification update */
 .software-spotlight,.proof-intro{padding:100px max(5vw,24px);background:#101010;border-top:1px solid #292929}
 .software-spotlight .section-title,.proof-intro .section-title{max-width:970px}
 .software-lead{max-width:920px;color:#c5c5c5;font-size:19px;line-height:1.75;margin:20px 0 35px}
