@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="SMAT Designs — Finished goods. No compromises. Packaging, apparel, and ecommerce for cannabis, CPG, and lifestyle brands.">
+    <meta name="description" content="SMAT Designs is an independent Tempe, Arizona design and software studio. We build custom applications, seller tools, ecommerce systems, brand identities, packaging, and apparel.">
     <meta name="theme-color" content="#050505">
-    <meta property="og:title" content="SMAT Designs | Finished Goods. No Compromises.">
-    <meta property="og:description" content="Premium packaging, apparel, and ecommerce design for CPG and lifestyle brands. 80+ brands. Zero revisions.">
+    <meta property="og:title" content="SMAT Designs | Software, Ecommerce & Creative Production">
+    <meta property="og:description" content="Independent software engineering, seller operations software, ecommerce, packaging, brand design, and apparel development in Tempe, Arizona.">
     <meta property="og:type" content="website">
     <meta property="og:image" content="/images/og-image.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="robots" content="index, follow">
+    <meta name="smat-site-revision" content="2026-10-08-amazon-website-verification">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 
-    <title>SMAT Designs — Finished Goods. No Compromises.</title>
+    <title>SMAT Designs | Software, Ecommerce & Design Studio</title>
 
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": ["ProfessionalService", "LocalBusiness"],
       "name": "SMAT Designs",
-      "description": "Full-service design studio — packaging architecture, apparel tech packs, brand identity, and ecommerce for cannabis, CPG, fashion, and entertainment brands.",
+      "description": "Independent design and software studio providing custom applications, seller operations software, ecommerce systems, automation, brand design, packaging, and apparel development.",
       "url": "https://smatdesigns.com",
       "email": "info@smatdesigns.com",
       "image": "https://smatdesigns.com/images/skynpatch-hero-bg.webp",
@@ -43,7 +44,7 @@
         { "@type": "Person", "name": "Scott Manthey" },
         { "@type": "Person", "name": "Ariel Tourner" }
       ],
-      "knowsAbout": ["Packaging Design", "Cannabis Packaging", "Apparel Tech Packs", "Brand Identity", "Product Visualization", "CPG Design", "Ecommerce Development"],
+      "knowsAbout": ["Software Development", "Amazon Seller Workflows", "Ecommerce Development", "Application Integrations", "Business Process Automation", "Packaging Design", "Apparel Tech Packs", "Brand Identity"],
       "areaServed": "US",
       "priceRange": "$$$$",
       "sameAs": ["https://instagram.com/smatdesigns"]
@@ -1521,11 +1522,28 @@
                 font-size: 32px;
             }
         }
+    /* Software + Amazon website verification update */
+.software-spotlight,.proof-intro{padding:100px max(5vw,24px);background:#101010;border-top:1px solid #292929}
+.software-spotlight .section-title,.proof-intro .section-title{max-width:970px}
+.software-lead{max-width:920px;color:#c5c5c5;font-size:19px;line-height:1.75;margin:20px 0 35px}
+.software-grid,.proof-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:1380px;margin:30px auto}
+.software-tile,.proof-tile{background:#181818;border:1px solid #333;border-radius:10px;padding:30px;color:#e8e8e8}
+.software-tile h3,.proof-tile h3{font:32px 'Bebas Neue',sans-serif;letter-spacing:1px;color:#fff}
+.software-tile p,.proof-tile p{color:#bbb;margin:14px 0;line-height:1.7}
+.software-tile .eyebrow,.proof-tile .eyebrow{font:11px 'JetBrains Mono',monospace;color:#ff8c00;text-transform:uppercase;letter-spacing:2px}
+.software-spotlight a:not(.btn),.proof-intro a:not(.btn){color:#c8ff00;text-underline-offset:4px}
+.verification-note{color:#b9b9b9;line-height:1.6;max-width:950px;margin:18px 0}
+.trust-number.word{font-size:clamp(28px,4vw,55px);letter-spacing:1px}
+.contact-methods{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;margin-top:25px}
+.contact-methods a{color:#ff8c00;font-weight:700;text-underline-offset:5px}
+.page-links a{color:#c8ff00}
+@media(max-width:800px){.software-grid,.proof-cards{grid-template-columns:1fr}.software-spotlight,.proof-intro{padding:65px 20px}.software-tile,.proof-tile{padding:25px}}
+
     </style>
 </head>
 <body>
     <!-- SKIP LINK -->
-    <a href="#work" class="skip-link">Skip to portfolio</a>
+    <a href="#software" class="skip-link">Skip to main content</a>
 
     <!-- CUSTOM CURSOR -->
     <div class="cursor"></div>
@@ -1541,59 +1559,52 @@
     </div>
 
     <!-- NAVIGATION -->
-    <nav>
-        <div class="logo">SMAT</div>
+    <nav aria-label="Main navigation">
+        <a href="/" class="logo" aria-label="SMAT Designs home">SMAT</a>
         <ul class="nav-links">
-            <li><a href="#work" class="nav-link">Work</a></li>
-            <li><a href="#process" class="nav-link">Process</a></li>
-            <li><a href="#capabilities" class="nav-link">Capabilities</a></li>
-            <li><a href="#faq" class="nav-link">FAQ</a></li>
+            <li><a href="/software/" class="nav-link">Software</a></li>
+            <li><a href="/services/" class="nav-link">Services</a></li>
+            <li><a href="/case-studies/" class="nav-link">Our Work</a></li>
+            <li><a href="/contact/" class="nav-link">Contact</a></li>
         </ul>
-        <button class="inquiry-btn" onclick="scrollToContact()">Inquiry</button>
-        <div class="hamburger" onclick="toggleMobileMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <a class="inquiry-btn" href="mailto:info@smatdesigns.com?subject=Project%20inquiry">Email Us</a>
+        <button class="hamburger" type="button" aria-label="Toggle mobile menu" onclick="toggleMobileMenu()">
+            <span></span><span></span><span></span>
+        </button>
     </nav>
-
-    <!-- MOBILE MENU -->
     <div class="mobile-menu">
-        <a href="#work">Work</a>
-        <a href="#process">Process</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#faq">FAQ</a>
-        <a href="mailto:info@smatdesigns.com">Inquiry</a>
+        <a href="/software/">Software</a>
+        <a href="/services/">Services</a>
+        <a href="/case-studies/">Case Studies</a>
+        <a href="#work">Design Portfolio</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
     </div>
 
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
         <div class="hero-content">
             <h1 class="hero-headline">
-                <span>FINISHED GOODS.</span><br>
-                <span>NO <span class="accent">COMPROMISES.</span></span>
+                <span>DESIGN. SOFTWARE.</span><br>
+                <span>BUILT TO <span class="accent">SHIP.</span></span>
             </h1>
-            <p class="hero-subheading">PACKAGING · APPAREL · WEB</p>
+            <p class="hero-subheading">APPS · AUTOMATION · ECOMMERCE · BRAND & PRODUCT DESIGN</p>
             <p class="hero-description">
-                Founded by Scott Manthey & Ariel Tourner — 12 years of Design + Engineering in Tempe, AZ. 80+ brands. 0% rejection rate.
+                SMAT Designs is an independent design and software studio founded by Scott Manthey and Ariel Tourner in Tempe, Arizona.
+                We create practical tools for sellers and businesses alongside production-ready creative work.
             </p>
             <p class="hero-description">
-                We design the final product—not mockups. Cannabis packaging that ships compliant. Apparel that factories accept on first submission. Ecommerce sites generating revenue. Zero revisions. Shipped in 4-8 weeks.
-            </p>
-            <p class="hero-description" style="font-size: 16px; color: #C8FF00; opacity: 1;">
-                ✓ We respond within 24 hours
+                From Amazon seller workflows and AI-assisted Mac software to ecommerce websites, packaging, and apparel:
+                we build, test, and improve products with direct operational experience.
             </p>
             <div class="hero-ctas">
-                <button class="btn btn-primary" onclick="window.open('https://calendly.com/smatdesigns', '_blank')">
-                    Book Your Free Strategy Call — This Month Only
-                </button>
-                <button class="btn btn-secondary" onclick="window.location.href='mailto:info@smatdesigns.com'">
-                    Get in Touch
-                </button>
+                <a class="btn btn-primary" href="/software/">Explore Our Software</a>
+                <a class="btn btn-secondary" href="/contact/">Contact SMAT Designs</a>
             </div>
             <div class="scroll-indicator">
-                <div class="scroll-indicator-text">SCROLL TO EXPLORE</div>
-                <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <div class="scroll-indicator-text">EXPLORE OUR WORK</div>
+                <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                     <polyline points="6 9 12 15 18 9"></polyline>
                 </svg>
             </div>
@@ -1601,25 +1612,28 @@
     </section>
 
     <!-- TRUST BAR -->
-    <section class="trust-bar">
-        <div class="trust-item">
-            <div class="trust-number" data-target="80">0</div>
-            <div class="trust-label">Brands Delivered</div>
+    <section class="trust-bar" aria-label="Studio at a glance">
+        <div class="trust-item"><div class="trust-number word">2014</div><div class="trust-label">Established</div></div>
+        <div class="trust-item"><div class="trust-number word">TEMPE</div><div class="trust-label">Arizona, USA</div></div>
+        <div class="trust-item"><div class="trust-number word">2</div><div class="trust-label">Hands-on founders</div></div>
+    </section>
+    <section class="software-spotlight" id="software">
+        <div class="section-label">SOFTWARE & SYSTEMS</div>
+        <h2 class="section-title">We also build the tools that run the business.</h2>
+        <p class="software-lead">SMAT builds original software and custom integrations for ecommerce operators, product teams, and independent businesses. Our work spans Amazon seller workflows, desktop applications, APIs, workflow automation, and testing systems. The same studio also offers established brand and production design services.</p>
+        <div class="software-grid">
+            <article class="software-tile"><div class="eyebrow">Seller software · Product development</div><h3>EzSeller</h3><p>Seller-focused software developed from firsthand experience managing listings, SKU and ASIN identity, inventory discrepancies, fees, and operational evidence across Amazon workflows. Public seller connections require Amazon authorization and approval.</p><a href="/software/#ezseller">Features, status and pricing →</a></article>
+            <article class="software-tile"><div class="eyebrow">macOS · Creator workflow</div><h3>AiSCent & LocalizeShots</h3><p>Tools for app teams working on localization, screenshots, metadata preparation, App Store Connect workflows, and release verification. Different software offerings have different access and release statuses.</p><a href="/software/#aiscent">How these tools work →</a></article>
+            <article class="software-tile"><div class="eyebrow">Custom development · Quoted projects</div><h3>Integrations & Automation</h3><p>APIs, MCP-enabled tools, ecommerce backends, task orchestration, and evidence-driven test systems designed to turn manual operational work into clearer repeatable processes.</p><a href="/services/#engineering">See software services →</a></article>
         </div>
-        <div class="trust-item">
-            <div class="trust-number" data-target="0">0%</div>
-            <div class="trust-label">Rejection Rate</div>
-        </div>
-        <div class="trust-item">
-            <div class="trust-number" data-target="12">0</div>
-            <div class="trust-label">Years Experience</div>
-        </div>
+        <p class="verification-note">Software services and first-party projects are described separately from public app availability. We do not represent SMAT as an Amazon partner or claim an app is Amazon-approved before approval.</p>
+        <a class="btn btn-primary" href="/software/">Explore Software & Pricing</a>
     </section>
 
     <!-- CLIENT LOGOS -->
     <section class="clients">
-        <div class="section-label">TRUSTED BY</div>
-        <h2 class="section-title">Our Clients</h2>
+        <div class="section-label">SELECTED PORTFOLIO</div>
+        <h2 class="section-title">Brands &amp; Projects</h2>
         <div class="clients-grid">
             <div class="client-logo">SkynPatch</div>
             <div class="client-logo">Cookies</div>
@@ -1666,7 +1680,7 @@
                 <div class="work-overlay">
                     <div class="work-info">
                         <h3>SkynPatch</h3>
-                        <p>Premium cannabis skincare branding and packaging design with full ecommerce integration.</p>
+                        <p>Wellness patch packaging, product identity, and ecommerce presentation.</p>
                         <div class="work-tags">
                             <span class="work-tag">PACKAGING</span>
                             <span class="work-tag">ECOMMERCE</span>
@@ -1822,7 +1836,7 @@
     <!-- CAPABILITIES -->
     <section class="capabilities" id="capabilities">
         <div class="section-label">SERVICES</div>
-        <h2 class="section-title">10 Core Capabilities</h2>
+        <h2 class="section-title">Creative & Production Capabilities</h2>
         <div class="capabilities-grid">
             <div class="capability">
                 <div class="cap-header">
@@ -1978,7 +1992,7 @@
                 </summary>
                 <div class="faq-content">
                     <p class="faq-answer">
-                        We specialize in cannabis, CPG (food, beverages, cosmetics), lifestyle brands, and ecommerce. We have 12+ years of experience navigating complex regulatory environments, manufacturing constraints, and retail requirements across all these industries.
+                        We work across consumer products, ecommerce, custom software, seller operations, fashion, and packaging. Founded in 2014, our studio combines practical operational experience with creative production and engineering.
                     </p>
                 </div>
             </details>
@@ -1990,7 +2004,7 @@
                 </summary>
                 <div class="faq-content">
                     <p class="faq-answer">
-                        Standard projects ship in 4-8 weeks. This includes discovery, design, revisions, tech pack creation, and production coordination. Timelines depend on complexity, your feedback speed, and manufacturing lead times.
+                        Timelines are scoped individually. Simple design deliverables may take weeks; software projects vary with requirements, security, third-party approvals, testing, and deployment dependencies. We agree on milestones before work begins.
                     </p>
                 </div>
             </details>
@@ -2002,7 +2016,7 @@
                 </summary>
                 <div class="faq-content">
                     <p class="faq-answer">
-                        Yes. We design with manufacturing constraints built in from day one. Our 0% rejection rate means we deliver files that factories accept on first submission—no reengineering required.
+                        We prepare production files with the relevant manufacturer specifications and review requirements before delivery. Final acceptance depends on the manufacturer, materials and applicable rules; no acceptance guarantee is implied.
                     </p>
                 </div>
             </details>
@@ -2014,7 +2028,7 @@
                 </summary>
                 <div class="faq-content">
                     <p class="faq-answer">
-                        We stay current with cannabis regulations across all major states. We handle child-resistant closures, warning labels, tracking codes, and packaging material requirements specific to each state's regulations.
+                        We design packaging against the specifications and jurisdictional requirements provided for a project. Clients and qualified regulatory professionals remain responsible for final legal and compliance review.
                     </p>
                 </div>
             </details>
@@ -2026,7 +2040,7 @@
                 </summary>
                 <div class="faq-content">
                     <p class="faq-answer">
-                        Absolutely. Every project includes detailed technical specification documents with measurements, materials, print specifications, tolerances, and manufacturing instructions—ensuring zero ambiguity with factories.
+                        Technical specifications, measurements, material requirements and production instructions can be included when those deliverables are within the agreed scope.
                     </p>
                 </div>
             </details>
@@ -2038,7 +2052,7 @@
                 </summary>
                 <div class="faq-content">
                     <p class="faq-answer">
-                        Yes. We build high-converting ecommerce sites from the ground up. We handle design, development, SEO, payment processing, and optimization to drive revenue—not just traffic.
+                        Yes. Depending on scope, we build storefronts, product pages, integrations, checkout workflows and operational tooling. Performance is measured after launch and business outcomes are not guaranteed.
                     </p>
                 </div>
             </details>
@@ -2050,95 +2064,48 @@
                 </summary>
                 <div class="faq-content">
                     <p class="faq-answer">
-                        Projects start at $4,000 per SKU and scale based on complexity. We respond within 24 hours to inquiries and provide detailed quotes after our discovery call. We work with startups to Fortune 500 brands.
+                        Custom software, design and engineering are quoted by project after scope review. For existing packaging work, packages have historically started around $4,000 per SKU; final quotes depend on deliverables. EzSeller subscription tiers and their availability are detailed on our Software page.
                     </p>
                 </div>
             </details>
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
-    <section class="testimonials">
-        <div class="section-label">TESTIMONIALS</div>
-        <h2 class="section-title">What Our Clients Say</h2>
+    <!-- PROJECT EVIDENCE, NOT UNVERIFIED TESTIMONIALS -->
+    <section class="testimonials" id="proof">
+        <div class="section-label">REAL WORK, CLEAR ATTRIBUTION</div>
+        <h2 class="section-title">Built by SMAT</h2>
+        <p class="software-lead">These examples describe our own projects, not third-party testimonials or endorsements. Client quotes and performance metrics are only published after authorization and verification.</p>
         <div class="testimonials-grid">
-            <div class="testimonial">
-                <div class="quote-mark">"</div>
-                <p class="testimonial-text">
-                    SMAT designed our packaging from concept to production. Zero revisions. Factory accepted on first submission. We were live in 6 weeks.
-                </p>
-                <p class="testimonial-author">Sarah Chen</p>
-                <p class="testimonial-role">Founder, SkynPatch</p>
-            </div>
-
-            <div class="testimonial">
-                <div class="quote-mark">"</div>
-                <p class="testimonial-text">
-                    We tried 3 other agencies. SMAT was the first to understand cannabis compliance AND retail standards. Game changer.
-                </p>
-                <p class="testimonial-author">Marcus Johnson</p>
-                <p class="testimonial-role">Operations, Black Wall Street</p>
-            </div>
-
-            <div class="testimonial">
-                <div class="quote-mark">"</div>
-                <p class="testimonial-text">
-                    Their tech packs were so detailed that our manufacturer actually asked if they could use them as a template for other clients.
-                </p>
-                <p class="testimonial-author">Elena Rodriguez</p>
-                <p class="testimonial-role">Product Manager, Plushtrap</p>
-            </div>
+            <article class="testimonial"><div class="quote-mark">01</div><h3>Seller operations</h3><p class="testimonial-text">We operate multiple consumer brands and have developed inventory, listing identity, reconciliation and seller workflow tooling informed by those operations.</p><p class="testimonial-author">First-party case study</p><p class="testimonial-role"><a href="/case-studies/#seller-operations">Read the project →</a></p></article>
+            <article class="testimonial"><div class="quote-mark">02</div><h3>App release tooling</h3><p class="testimonial-text">AiSCent and LocalizeShots explore safer Mac app workflows for localization, screenshots, App Store Connect administration and release verification.</p><p class="testimonial-author">First-party case study</p><p class="testimonial-role"><a href="/case-studies/#app-releases">Read the project →</a></p></article>
+            <article class="testimonial"><div class="quote-mark">03</div><h3>Creative production</h3><p class="testimonial-text">Our visible portfolio includes wellness packaging, apparel, board games, retail graphics and product visualization. Review actual imagery in the design gallery.</p><p class="testimonial-author">Portfolio evidence</p><p class="testimonial-role"><a href="#work">View design examples →</a></p></article>
         </div>
     </section>
 
     <!-- CONTACT SECTION -->
-    <section class="contact">
+    <section class="contact" id="contact">
         <div class="contact-container">
-            <h2 class="contact-title">Start Your Project</h2>
-            <form action="https://formsubmit.co/info@smatdesigns.com" method="POST">
-                <div class="form-group">
-                    <label class="form-label">Full Name</label>
-                    <input type="text" name="name" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Email Address</label>
-                    <input type="email" name="email" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Company Name</label>
-                    <input type="text" name="company" class="form-input" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label">Project Details</label>
-                    <textarea name="message" class="form-textarea" required></textarea>
-                </div>
-                <div class="contact-buttons">
-                    <button type="button" class="btn btn-primary" onclick="window.open('https://calendly.com/smatdesigns', '_blank')">
-                        Book Free Strategy Call
-                    </button>
-                    <button type="submit" class="btn btn-secondary">
-                        Send Message
-                    </button>
-                </div>
-            </form>
+            <div class="section-label">BUSINESS & CONTACT</div>
+            <h2 class="contact-title">Talk With SMAT Designs</h2>
+            <p class="software-lead" style="text-align:center;margin:0 auto 25px">SMAT Designs · Independent software and design studio · Tempe, Arizona, United States. Founded by Scott Manthey and Ariel Tourner. For software inquiries, product support, service proposals or privacy requests, contact our published business email.</p>
+            <div class="contact-methods">
+                <a class="btn btn-primary" href="mailto:info@smatdesigns.com?subject=SMAT%20Designs%20Inquiry">Email info@smatdesigns.com</a>
+                <a class="btn btn-secondary" href="/contact/">Business & Contact Details</a>
+            </div>
         </div>
     </section>
-
-    <!-- LEAD MAGNET -->
     <section class="lead-magnet">
-        <h2 class="lead-magnet-title">Cannabis Packaging Compliance Checklist</h2>
-        <p class="lead-magnet-subtitle">The 15-point checklist that ensures your packaging passes state regulations on first submission.</p>
-        <div class="lead-magnet-cta">
-            <input type="email" placeholder="Your email" class="lead-magnet-email">
-            <button class="btn btn-primary" onclick="alert('Sign up flow would be here')">Get Checklist</button>
-        </div>
+        <h2 class="lead-magnet-title">Software, Design & Operations</h2>
+        <p class="lead-magnet-subtitle">Explore the service details, pricing approach, first-party work and business information before reaching out.</p>
+        <div class="lead-magnet-cta"><a class="btn btn-primary" href="/services/">See Our Services</a></div>
     </section>
 
     <!-- STICKY CTA -->
     <div class="sticky-cta">
         <p class="sticky-text">Ready to start your project?</p>
-        <button class="btn btn-primary" onclick="window.open('https://calendly.com/smatdesigns', '_blank')">
-            Book Free Strategy Call
+        <button class="btn btn-primary" onclick="window.location.href='mailto:info@smatdesigns.com?subject=Project%20inquiry'">
+            Email SMAT Designs
         </button>
     </div>
 
@@ -2147,42 +2114,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeCaseStudy()">&times;</button>
             <img src="images/skynpatch-grace-perfect.webp" alt="SkynPatch" class="modal-image" loading="lazy">
-            <div class="modal-body">
-                <h2 class="modal-title">SkynPatch</h2>
-                <p class="modal-subtitle">Premium cannabis skincare branding, packaging, and ecommerce</p>
-
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">6</div>
-                        <div class="stat-label">Week Timeline</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">8</div>
-                        <div class="stat-label">SKUs</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Revisions</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">4x</div>
-                        <div class="stat-label">Conversion Lift</div>
-                    </div>
-                </div>
-
-                <p class="modal-text">
-                    SkynPatch came to us with a vision to disrupt the cannabis skincare space. We handled everything: brand identity, packaging design compliant with all state regulations, tech packs for manufacturing, and a high-converting ecommerce site. The result: factory accepted all designs on first submission, and their conversion rate increased 4x after launch.
-                </p>
-
-                <p class="modal-text">
-                    Key challenges: Ensuring compliance across 15+ states while maintaining premium aesthetic. Sourcing sustainable packaging materials. Creating packaging that stands out on retail shelves. Building an ecommerce experience that converts.
-                </p>
-
-                <p class="modal-text">
-                    Our solution: Deep dive into state regulations for each SKU. Collaborated with manufacturers to source materials that met their budget and sustainability goals. Designed packaging with shelf impact and consumer psychology in mind. Built ecommerce with conversion optimization from day one.
-                </p>
-
-                <a href="https://calendly.com/smatdesigns" target="_blank" class="btn btn-primary">Start Your Project</a>
+            <div class="modal-body"><h2 class="modal-title">SkynPatch</h2><p class="modal-subtitle">Wellness patch branding, packaging and product presentations.</p><p class="modal-text">This portfolio entry illustrates the type of design deliverable SMAT Designs creates. Product images and project descriptions are illustrative; no unaudited revenue, conversion, regulatory approval or client testimonial is asserted here.</p><a href="/contact/" class="btn btn-primary">Discuss a Project</a>
             </div>
         </div>
     </div>
@@ -2191,42 +2123,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeCaseStudy()">&times;</button>
             <img src="images/sweetoz-display-case.webp" alt="Sweetoz" class="modal-image" loading="lazy">
-            <div class="modal-body">
-                <h2 class="modal-title">Sweetoz</h2>
-                <p class="modal-subtitle">Premium candy confectionery packaging with retail displays</p>
-
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Week Timeline</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">12</div>
-                        <div class="stat-label">SKUs</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Revisions</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">$2.1M</div>
-                        <div class="stat-label">First Year Revenue</div>
-                    </div>
-                </div>
-
-                <p class="modal-text">
-                    Sweetoz is a premium candy brand targeting luxury retail environments. We designed 12 unique SKUs with metallic finishes, custom embossing, and retail display systems. Each package tells a story and commands attention on high-end retail shelves.
-                </p>
-
-                <p class="modal-text">
-                    Key challenges: Balancing premium aesthetics with cost-effective manufacturing. Creating shelf impact in a crowded confectionery category. Designing retail displays that complement in-store environments.
-                </p>
-
-                <p class="modal-text">
-                    Our solution: Worked with premium packaging suppliers to achieve metallic effects within budget. Designed modular retail displays adaptable to different store layouts. Created packaging that translates photography for digital retail (Amazon, specialty ecommerce).
-                </p>
-
-                <a href="https://calendly.com/smatdesigns" target="_blank" class="btn btn-primary">Start Your Project</a>
+            <div class="modal-body"><h2 class="modal-title">Sweetoz</h2><p class="modal-subtitle">Retail confectionery packaging concepts, displays and product visualization.</p><p class="modal-text">This portfolio entry illustrates the type of design deliverable SMAT Designs creates. Product images and project descriptions are illustrative; no unaudited revenue, conversion, regulatory approval or client testimonial is asserted here.</p><a href="/contact/" class="btn btn-primary">Discuss a Project</a>
             </div>
         </div>
     </div>
@@ -2235,42 +2132,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeCaseStudy()">&times;</button>
             <img src="images/bws-boardgame-studio.webp" alt="BWS" class="modal-image" loading="lazy">
-            <div class="modal-body">
-                <h2 class="modal-title">Black Wall Street</h2>
-                <p class="modal-subtitle">Board game packaging and gaming community branding</p>
-
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">7</div>
-                        <div class="stat-label">Week Timeline</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">3</div>
-                        <div class="stat-label">Games</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Revisions</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">50K</div>
-                        <div class="stat-label">Units Shipped</div>
-                    </div>
-                </div>
-
-                <p class="modal-text">
-                    Black Wall Street creates board games celebrating African American culture and history. We designed packaging that captures the spirit of the games while meeting retail standards for major distributors. Every detail—from box construction to insert design—was optimized for gameplay and unboxing experience.
-                </p>
-
-                <p class="modal-text">
-                    Key challenges: Game box design that protects delicate components. Creating packaging that stands out in a crowded game retail space. Managing complex assembly with multiple inserts and components.
-                </p>
-
-                <p class="modal-text">
-                    Our solution: Engineered packaging with custom insert systems to protect game components. Designed box artwork that tells the story of each game. Created tech packs detailing every assembly step to ensure zero defects in production.
-                </p>
-
-                <a href="https://calendly.com/smatdesigns" target="_blank" class="btn btn-primary">Start Your Project</a>
+            <div class="modal-body"><h2 class="modal-title">Black Wall Street</h2><p class="modal-subtitle">Board game packaging, product photography and visual identity.</p><p class="modal-text">This portfolio entry illustrates the type of design deliverable SMAT Designs creates. Product images and project descriptions are illustrative; no unaudited revenue, conversion, regulatory approval or client testimonial is asserted here.</p><a href="/contact/" class="btn btn-primary">Discuss a Project</a>
             </div>
         </div>
     </div>
@@ -2279,42 +2141,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeCaseStudy()">&times;</button>
             <img src="images/slimglp-bottle-premium.webp" alt="SLIM GLP" class="modal-image" loading="lazy">
-            <div class="modal-body">
-                <h2 class="modal-title">SLIM GLP</h2>
-                <p class="modal-subtitle">Pharmaceutical bottle design with clinical specifications</p>
-
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">8</div>
-                        <div class="stat-label">Week Timeline</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Formats</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">100%</div>
-                        <div class="stat-label">Compliance</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">2M</div>
-                        <div class="stat-label">Units Annual</div>
-                    </div>
-                </div>
-
-                <p class="modal-text">
-                    SLIM GLP is a pharmaceutical brand requiring FDA compliance, clinical accuracy, and premium aesthetics. We designed bottles and labels meeting all pharmaceutical regulations while maintaining brand identity. Every specification was documented for medical device manufacturing.
-                </p>
-
-                <p class="modal-text">
-                    Key challenges: Navigating FDA labeling requirements. Ensuring accurate dosing information. Designing labels for multiple languages and regulatory markets. Creating clinical credibility while maintaining brand appeal.
-                </p>
-
-                <p class="modal-text">
-                    Our solution: Worked with regulatory consultants to ensure compliance across markets. Created label systems supporting multiple languages. Designed clinical typography and information hierarchy. Developed comprehensive tech packs with pharmaceutical manufacturing standards.
-                </p>
-
-                <a href="https://calendly.com/smatdesigns" target="_blank" class="btn btn-primary">Start Your Project</a>
+            <div class="modal-body"><h2 class="modal-title">SLIM GLP</h2><p class="modal-subtitle">Consumer product bottle and label design shown in our portfolio.</p><p class="modal-text">This portfolio entry illustrates the type of design deliverable SMAT Designs creates. Product images and project descriptions are illustrative; no unaudited revenue, conversion, regulatory approval or client testimonial is asserted here.</p><a href="/contact/" class="btn btn-primary">Discuss a Project</a>
             </div>
         </div>
     </div>
@@ -2323,42 +2150,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeCaseStudy()">&times;</button>
             <img src="images/plushtrap-satin-jacket-1.webp" alt="Plushtrap" class="modal-image" loading="lazy">
-            <div class="modal-body">
-                <h2 class="modal-title">Plushtrap</h2>
-                <p class="modal-subtitle">Apparel line design with custom manufacturing</p>
-
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">6</div>
-                        <div class="stat-label">Week Timeline</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">8</div>
-                        <div class="stat-label">Styles</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Revisions</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">100%</div>
-                        <div class="stat-label">Factory Accept</div>
-                    </div>
-                </div>
-
-                <p class="modal-text">
-                    Plushtrap is a high-end apparel brand known for quality craftsmanship and unique design. We designed a full collection with detailed tech packs specifying every seam, stitch count, and material. Each design was optimized for their chosen manufacturer's capabilities.
-                </p>
-
-                <p class="modal-text">
-                    Key challenges: Translating premium brand vision into manufacturing specs. Sourcing unique fabrics (satin, premium blends). Ensuring consistent quality across production runs. Managing fit across multiple sizes.
-                </p>
-
-                <p class="modal-text">
-                    Our solution: Created detailed apparel tech packs with fit specifications for all sizes. Sourced and tested fabrics before finalizing specs. Worked directly with manufacturer to optimize production processes. Designed QA checks for fabric quality and construction.
-                </p>
-
-                <a href="https://calendly.com/smatdesigns" target="_blank" class="btn btn-primary">Start Your Project</a>
+            <div class="modal-body"><h2 class="modal-title">Plushtrap</h2><p class="modal-subtitle">Apparel concepts, garment visuals and production-oriented design.</p><p class="modal-text">This portfolio entry illustrates the type of design deliverable SMAT Designs creates. Product images and project descriptions are illustrative; no unaudited revenue, conversion, regulatory approval or client testimonial is asserted here.</p><a href="/contact/" class="btn btn-primary">Discuss a Project</a>
             </div>
         </div>
     </div>
@@ -2367,42 +2159,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeCaseStudy()">&times;</button>
             <img src="images/wmac-patch-onbody.webp" alt="WMAC" class="modal-image" loading="lazy">
-            <div class="modal-body">
-                <h2 class="modal-title">WMAC Masters</h2>
-                <p class="modal-subtitle">Sports apparel patches and merchandise design</p>
-
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">4</div>
-                        <div class="stat-label">Week Timeline</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">6</div>
-                        <div class="stat-label">Designs</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Revisions</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">15K</div>
-                        <div class="stat-label">Patches Sold</div>
-                    </div>
-                </div>
-
-                <p class="modal-text">
-                    WMAC Masters is a professional sports federation needing branded merchandise that resonates with their community. We designed custom patches for athletes and merchandise that captures the competitive spirit and prestige of the organization.
-                </p>
-
-                <p class="modal-text">
-                    Key challenges: Creating designs that work on multiple application methods (patches, embroidery, print). Maintaining design integrity at small sizes. Managing multiple colorways. Balancing athlete feedback with brand consistency.
-                </p>
-
-                <p class="modal-text">
-                    Our solution: Designed patch and embroidery files for optimal stitch quality. Created multiple colorways for merchandise options. Worked with embroidery and print suppliers to ensure quality across production. Designed athlete-approved designs that celebrate WMAC heritage.
-                </p>
-
-                <a href="https://calendly.com/smatdesigns" target="_blank" class="btn btn-primary">Start Your Project</a>
+            <div class="modal-body"><h2 class="modal-title">WMAC Masters</h2><p class="modal-subtitle">Sports-inspired apparel graphics and embroidery visualizations.</p><p class="modal-text">This portfolio entry illustrates the type of design deliverable SMAT Designs creates. Product images and project descriptions are illustrative; no unaudited revenue, conversion, regulatory approval or client testimonial is asserted here.</p><a href="/contact/" class="btn btn-primary">Discuss a Project</a>
             </div>
         </div>
     </div>
@@ -2411,42 +2168,7 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeCaseStudy()">&times;</button>
             <img src="images/cookies-led-sign.webp" alt="Cookies" class="modal-image" loading="lazy">
-            <div class="modal-body">
-                <h2 class="modal-title">Cookies</h2>
-                <p class="modal-subtitle">Retail signage and point-of-sale design with LED integration</p>
-
-                <div class="modal-stats">
-                    <div class="stat-item">
-                        <div class="stat-value">5</div>
-                        <div class="stat-label">Week Timeline</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">15</div>
-                        <div class="stat-label">Locations</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">0</div>
-                        <div class="stat-label">Revisions</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value">35%</div>
-                        <div class="stat-label">Traffic Lift</div>
-                    </div>
-                </div>
-
-                <p class="modal-text">
-                    Cookies needed striking retail signage to compete in busy retail environments. We designed LED-integrated point-of-sale displays that command attention and communicate brand values. Each design was adapted for specific retail locations.
-                </p>
-
-                <p class="modal-text">
-                    Key challenges: Designing for diverse retail environments. Integrating LED elements safely and effectively. Creating signage that works with retail partner brand guidelines. Managing installation across multiple locations.
-                </p>
-
-                <p class="modal-text">
-                    Our solution: Created modular signage systems adaptable to different retail spaces. Worked with LED manufacturers to specify safe, energy-efficient integration. Designed installation guides for retail partners. Delivered comprehensive asset libraries for each location.
-                </p>
-
-                <a href="https://calendly.com/smatdesigns" target="_blank" class="btn btn-primary">Start Your Project</a>
+            <div class="modal-body"><h2 class="modal-title">Cookies</h2><p class="modal-subtitle">Retail graphics and point-of-sale display concepts.</p><p class="modal-text">This portfolio entry illustrates the type of design deliverable SMAT Designs creates. Product images and project descriptions are illustrative; no unaudited revenue, conversion, regulatory approval or client testimonial is asserted here.</p><a href="/contact/" class="btn btn-primary">Discuss a Project</a>
             </div>
         </div>
     </div>
@@ -2454,19 +2176,13 @@
     <!-- FOOTER -->
     <footer>
         <div class="footer-content">
-            <div class="footer-left">
-                &copy; 2024 SMAT Designs. All rights reserved.
-            </div>
-            <div class="footer-center">
-                SMAT
-            </div>
-            <div class="footer-right">
-                <ul class="footer-links">
-                    <li><a href="mailto:info@smatdesigns.com">Email</a></li>
-                    <li><a href="https://calendly.com/smatdesigns" target="_blank">Book a Call</a></li>
-                    <li><a href="https://instagram.com" target="_blank">Instagram</a></li>
-                </ul>
-            </div>
+            <div class="footer-left">&copy; 2026 SMAT Designs. Tempe, Arizona, United States.</div>
+            <div class="footer-center">SMAT</div>
+            <div class="footer-right"><ul class="footer-links">
+                <li><a href="/software/">Software</a></li><li><a href="/services/">Services</a></li><li><a href="/case-studies/">Work</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy</a></li><li><a href="/terms/">Terms</a></li>
+                <li><a href="mailto:info@smatdesigns.com">Email</a></li>
+                <li><a href="https://instagram.com/smatdesigns" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            </ul></div>
         </div>
     </footer>
 
@@ -2593,26 +2309,7 @@
             ease: 'none',
         });
 
-        // ========== TRUST BAR COUNTER ==========
-        const trustItems = document.querySelectorAll('.trust-number');
-
-        gsap.to(trustItems[0], {
-            textContent: 80,
-            duration: 2,
-            ease: 'power2.out',
-            scrollTrigger: { trigger: trustItems[0], start: 'center center', once: true },
-            snap: { textContent: 1 },
-        });
-
-        gsap.to(trustItems[2], {
-            textContent: 12,
-            duration: 2,
-            ease: 'power2.out',
-            scrollTrigger: { trigger: trustItems[2], start: 'center center', once: true },
-            snap: { textContent: 1 },
-        });
-
-        trustItems[1].textContent = '0%';
+        // Establishment, location and team information are static, factual labels.
 
         // ========== CLIENTS STAGGER ==========
         gsap.set('.client-logo', { opacity: 0, y: 20 });
