@@ -5,6 +5,10 @@ on:
     branches: ["main"]
   workflow_dispatch:
 
+concurrency:
+  group: smatdesigns-pages-production
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,11 +17,15 @@ jobs:
       deployments: write
     steps:
       - uses: actions/checkout@v4
-      - name: Deploy static site
-        uses: cloudflare/pages-action@v1
+      - name: Check website before deployment
+        run: python3 scripts/check_site.py
+      - name: Deploy with supported Cloudflare Wrangler action
+        id: deploy
+        uses: cloudflare/wrangler-action@v4
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: 793e209ea35f2e064b4b49b168a26c22
-          projectName: smatdesigns
-          directory: .
+          command: pages deploy . --project-name=smatdesigns --branch=main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Verify published production website
+        run: bash scripts/check_live_site.sh https://smatdesigns.com
