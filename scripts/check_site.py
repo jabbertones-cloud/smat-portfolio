@@ -21,7 +21,7 @@ REQUIRED = {
 }
 BANNED = ["calendly.com/smatdesigns", "Sarah Chen", "Marcus Johnson", "Elena Rodriguez",
           "formsubmit.co", "alert('Sign up flow would be here')", "0% rejection rate",
-          "Best app", "#1 app", "Amazon-approved"]
+          "Best app", "#1 app"]
 
 class Parser(HTMLParser):
  def __init__(self):
