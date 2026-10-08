@@ -8,16 +8,7 @@ REVISION='2026-10-08-amazon-website-verification'
 # A 200 status is insufficient: old Pages setups can return the homepage
 # for every unknown path. Test distinct real page content and TLS as well.
 paths=("/" "/software/" "/services/" "/case-studies/" "/contact/" "/privacy/" "/terms/")
-needles=(
-  "SMAT Designs | Software, Ecommerce &amp; Design Studio"
-  "Software Products &amp; Seller Tools"
-  "Services, Capabilities &amp; Pricing"
-  "Case Studies &amp; Verifiable Portfolio"
-  "Company &amp; Contact Information"
-  "Privacy Policy"
-  "Terms of Service"
-)
-# HTML page titles here use literal '&' instead of '&amp;' in text.
+# The expected title text differs for every page, preventing fallback 200s from passing.
 needles=(
   "SMAT Designs | Software, Ecommerce & Design Studio"
   "Software Products & Seller Tools"
@@ -56,7 +47,7 @@ for path in /sitemap.xml /robots.txt; do
 done
 
 if [[ "$fail" -ne 0 ]]; then
-  echo "Production acceptance FAILED"
+  echo "HTTP route acceptance FAILED"
   exit 1
 fi
-echo "Production acceptance PASS: 7 unique HTTPS pages, release marker, sitemap and robots"
+echo "HTTP route acceptance PASS: 7 unique pages, release marker, sitemap and robots"
