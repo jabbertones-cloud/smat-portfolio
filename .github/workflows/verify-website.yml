@@ -1,0 +1,27 @@
+name: Verify public business website
+on:
+  pull_request:
+    paths:
+      - '**/*.html'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'scripts/check_site.py'
+      - '.github/workflows/verify-website.yml'
+  push:
+    branches: [main]
+    paths:
+      - '**/*.html'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'scripts/check_site.py'
+      - '.github/workflows/verify-website.yml'
+  workflow_dispatch:
+jobs:
+  static-site-contract:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify business and software pages
+        run: python3 scripts/check_site.py
