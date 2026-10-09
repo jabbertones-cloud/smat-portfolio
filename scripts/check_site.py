@@ -56,7 +56,9 @@ def check():
    if expected.lower() not in content.lower(): errors.append(f"{rel}: missing {expected!r}")
   for banned in BANNED:
    if banned.lower() in content.lower(): errors.append(f"{rel}: forbidden copy {banned!r}")
-  if rel != "index.html" and '<link rel="canonical"' not in content: errors.append(f"{rel}: no canonical URL")
+  if '<link rel="canonical"' not in content: errors.append(f"{rel}: no canonical URL")
+  if rel == "index.html" and ('.preloader' in content or 'heroTl' in content): errors.append("homepage is blocked by preloader or deferred hero")
+  if rel == "software/index.html" and content.find('<section class="hero">') > content.find('id="service-separation"'): errors.append("software hero is buried after authorization copy")
   for url in p.links + p.images:
    if not url or url.startswith("javascript:"): errors.append(f"{rel}: empty or javascript link {url!r}"); continue
    if url.startswith(("mailto:", "https:", "http:", "data:")): continue

@@ -40,6 +40,11 @@ function upstreamRequest(request) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    // One public canonical domain. Preserve paths, query strings and non-GET methods.
+    if (url.hostname.toLowerCase() === 'www.smatdesigns.com') {
+      url.hostname = 'smatdesigns.com';
+      return Response.redirect(url.toString(), request.method === 'GET' || request.method === 'HEAD' ? 301 : 308);
+    }
     if (url.pathname === '/hub/') {
       url.pathname = '/hub';
       return Response.redirect(url.toString(), 308);
