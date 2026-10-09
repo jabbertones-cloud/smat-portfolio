@@ -11,6 +11,8 @@
     <meta property="og:image" content="/images/og-image.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://smatdesigns.com/">
+    <meta property="og:url" content="https://smatdesigns.com/">
     <meta name="smat-site-revision" content="2026-10-08-amazon-website-verification">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -147,54 +149,6 @@
             .cursor {
                 display: none;
             }
-        }
-
-        /* ========== PRELOADER ========== */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #050505;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            z-index: 10000;
-            gap: 40px;
-        }
-
-        .preloader.done {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .preloader-text {
-            font-family: 'Bebas Neue', sans-serif;
-            font-size: clamp(48px, 8vw, 120px);
-            font-weight: 400;
-            letter-spacing: 4px;
-            color: #E8E8E8;
-        }
-
-        .preloader-text span {
-            display: inline-block;
-            opacity: 0;
-        }
-
-        .preloader-progress {
-            width: 200px;
-            height: 2px;
-            background: #222;
-            border-radius: 2px;
-            overflow: hidden;
-        }
-
-        .preloader-bar {
-            height: 100%;
-            background: #FF8C00;
-            width: 0;
         }
 
         /* ========== NAVIGATION ========== */
@@ -355,8 +309,9 @@
         .hero {
             position: relative;
             width: 100%;
-            height: 100vh;
-            min-height: 600px;
+            min-height: 100vh;
+            height: auto;
+            padding: 110px 0 90px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -413,15 +368,13 @@
             text-transform: uppercase;
             color: #C8FF00;
             margin-bottom: 40px;
-            opacity: 0;
-        }
+            }
 
         .hero-description {
             font-size: 18px;
             line-height: 1.8;
             color: #999;
             margin-bottom: 40px;
-            opacity: 0;
             max-width: 700px;
             margin-left: auto;
             margin-right: auto;
@@ -432,8 +385,7 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            opacity: 0;
-        }
+            }
 
         .btn {
             padding: 14px 32px;
@@ -476,7 +428,6 @@
             bottom: 40px;
             left: 50%;
             transform: translateX(-50%);
-            opacity: 0;
             text-align: center;
         }
 
@@ -1558,15 +1509,7 @@
     <!-- CUSTOM CURSOR -->
     <div class="cursor"></div>
 
-    <!-- PRELOADER -->
-    <div class="preloader">
-        <div class="preloader-text">
-            <span>S</span><span>M</span><span>A</span><span>T</span>
-        </div>
-        <div class="preloader-progress">
-            <div class="preloader-bar"></div>
-        </div>
-    </div>
+</div>
 
     <!-- NAVIGATION -->
     <nav aria-label="Main navigation">
@@ -1615,12 +1558,7 @@
                 <a class="btn btn-primary" href="/software/">Explore Our Software</a>
                 <a class="btn btn-secondary" href="/contact/">Contact SMAT Designs</a>
             </div>
-            <div class="scroll-indicator">
-                <div class="scroll-indicator-text">EXPLORE OUR WORK</div>
-                <svg class="scroll-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
-            </div>
+
         </div>
     </section>
 
@@ -2251,76 +2189,6 @@
         document.querySelectorAll('a, button, .client-logo, .work-item, .process-step, .capability, details').forEach(el => {
             el.addEventListener('mouseenter', () => cursor.classList.add('active'));
             el.addEventListener('mouseleave', () => cursor.classList.remove('active'));
-        });
-
-        // ========== PRELOADER ==========
-        const preloader = document.querySelector('.preloader');
-        const preloaderText = document.querySelectorAll('.preloader-text span');
-        const preloaderBar = document.querySelector('.preloader-bar');
-
-        const preloaderTl = gsap.timeline();
-
-        preloaderTl.to(preloaderText, {
-            opacity: 1,
-            duration: 0.4,
-            stagger: 0.1,
-            ease: 'power2.out',
-        });
-
-        preloaderTl.to(preloaderBar, {
-            width: '100%',
-            duration: 1,
-            ease: 'power2.inOut',
-        }, 0.2);
-
-        preloaderTl.to(preloader, {
-            opacity: 0,
-            duration: 0.6,
-            delay: 0.8,
-            ease: 'power2.inOut',
-            onComplete: () => {
-                preloader.classList.add('done');
-            }
-        }, 0);
-
-        // ========== HERO ANIMATIONS ==========
-        const heroHeadline = document.querySelector('.hero-headline');
-        const heroSubheading = document.querySelector('.hero-subheading');
-        const heroDescription = document.querySelectorAll('.hero-description');
-        const heroCtas = document.querySelector('.hero-ctas');
-        const scrollIndicator = document.querySelector('.scroll-indicator');
-
-        // Keep nested markup intact. Rewriting innerHTML here turns the accent
-        // span's attributes into visible text in the hero headline.
-        const headlineSpans = heroHeadline.querySelectorAll(':scope > span');
-
-        const heroTl = gsap.timeline({
-            delay: 1.2,
-        });
-
-        heroTl.to(headlineSpans, {
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.05,
-            ease: 'power2.out',
-        }, 0);
-
-        heroTl.to([heroSubheading, ...heroDescription, heroCtas, scrollIndicator], {
-            opacity: 1,
-            duration: 0.8,
-            stagger: 0.15,
-            ease: 'power2.out',
-        }, 0.4);
-
-        gsap.to('.hero::before', {
-            scrollTrigger: {
-                trigger: '.hero',
-                start: 'top top',
-                end: 'bottom top',
-                scrub: 1,
-            },
-            y: 100,
-            ease: 'none',
         });
 
         // Establishment, location and team information are static, factual labels.
