@@ -1509,7 +1509,6 @@
     <!-- CUSTOM CURSOR -->
     <div class="cursor"></div>
 
-</div>
 
     <!-- NAVIGATION -->
     <nav aria-label="Main navigation">
@@ -1522,11 +1521,11 @@
             <li><a href="/contact/" class="nav-link">Contact</a></li>
         </ul>
         <a class="inquiry-btn" href="mailto:info@smatdesigns.com?subject=Project%20inquiry">Email Us</a>
-        <button class="hamburger" type="button" aria-label="Toggle mobile menu" onclick="toggleMobileMenu()">
+        <button class="hamburger" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu" onclick="toggleMobileMenu()">
             <span></span><span></span><span></span>
         </button>
     </nav>
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu">
         <a href="/software/">Software</a>
         <a href="/services/">Services</a>
         <a href="/a-plus-content/">A+ Content</a>
@@ -1537,6 +1536,27 @@
         <a href="/privacy/">Privacy</a>
         <a href="/terms/">Terms</a>
     </div>
+    <!-- Navigation works even when optional animation libraries are unavailable. -->
+    <script>
+      (() => {
+        const button = document.querySelector('.hamburger');
+        const menu = document.getElementById('mobile-menu');
+        function setMobileMenuOpen(open) {
+          button.classList.toggle('active', open);
+          menu.classList.toggle('active', open);
+          button.setAttribute('aria-expanded', String(open));
+          button.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+        }
+        window.toggleMobileMenu = () => setMobileMenuOpen(!menu.classList.contains('active'));
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMobileMenuOpen(false)));
+        document.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape' && menu.classList.contains('active')) {
+            setMobileMenuOpen(false);
+            button.focus();
+          }
+        });
+      })();
+    </script>
 
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
@@ -2270,25 +2290,6 @@
                 nav.classList.add('scrolled');
             } else {
                 nav.classList.remove('scrolled');
-            }
-        });
-
-        // ========== MOBILE MENU ==========
-        function toggleMobileMenu() {
-            const hamburger = document.querySelector('.hamburger');
-            const mobileMenu = document.querySelector('.mobile-menu');
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        }
-
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', toggleMobileMenu);
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                document.querySelector('.hamburger').classList.remove('active');
-                document.querySelector('.mobile-menu').classList.remove('active');
             }
         });
 
