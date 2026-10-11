@@ -9,7 +9,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 PAGES = ["index.html", "software/index.html", "services/index.html", "case-studies/index.html",
-         "contact/index.html", "privacy/index.html", "terms/index.html"]
+         "contact/index.html", "privacy/index.html", "terms/index.html", "a-plus-content/index.html", "security/index.html"]
 REQUIRED = {
  "index.html": ["SMAT Designs", "EzSeller", "AiSCent", "info@smatdesigns.com"],
  "software/index.html": ["EzSeller", "AiSCent", "LocalizeShots", "$39", "$99", "$249", "Amazon", "authorization", "WWDC MCP", "ezseller.smatdesigns.com", "aiscentmcp.com", "wwdcmcp.smatdesigns.com"],
@@ -18,6 +18,8 @@ REQUIRED = {
  "contact/index.html": ["Tempe", "Arizona", "SMAT Designs", "info@smatdesigns.com", "Scott Manthey", "Ariel Tourner"],
  "privacy/index.html": ["Retention and Deletion", "Selling Partner", "Security", "Privacy"],
  "terms/index.html": ["Terms", "pricing", "Amazon", "Privacy"],
+ "a-plus-content/index.html": ["Enhanced Brand Content", "A+ Content", "Seller Central", "SkynPatch", "sm@smatdesigns.com"],
+ "security/index.html": ["incident", "risk", "24 hours", "sm@smatdesigns.com", "Amazon"],
 }
 BANNED = ["calendly.com/smatdesigns", "Sarah Chen", "Marcus Johnson", "Elena Rodriguez",
           "formsubmit.co", "alert('Sign up flow would be here')", "0% rejection rate",
@@ -68,6 +70,7 @@ def check():
   print(f"OK {rel}: links={len(p.links)}, images={len(p.images)}, title={''.join(p.titles)}")
  if not (ROOT/"sitemap.xml").exists(): errors.append("missing sitemap")
  if not (ROOT/"robots.txt").exists(): errors.append("missing robots")
+ if not (ROOT/".well-known/security.txt").exists(): errors.append("missing security.txt")
  if errors:
   for error in errors: print("FAIL",error)
   raise SystemExit(f"{len(errors)} website acceptance check(s) failed")
