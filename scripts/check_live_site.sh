@@ -3,7 +3,7 @@ set -euo pipefail
 
 BASE="${1:-https://smatdesigns.com}"
 BASE="${BASE%/}"
-REVISION='2026-10-08-amazon-website-verification'
+REVISION='2026-10-25-ahrefs-email-links'
 
 # A 200 status is insufficient: old Pages setups can return the homepage
 # for every unknown path. Test distinct real page content and TLS as well.
@@ -31,8 +31,18 @@ for i in "${!paths[@]}"; do
     echo "FAIL $path status=$status"; fail=1
   elif ! grep -Fq "$REVISION" "$body"; then
     echo "FAIL $path missing release marker"; fail=1
+  elif grep -Fq '/cdn-cgi/l/email-protection' "$body"; then
+    echo "FAIL $path Cloudflare rewrote a contact link into crawler-visible 404"; fail=1
+  elif ! grep -Fq 'href="mailto:' "$body"; then
+    echo "FAIL $path no directly usable mailto link in raw HTML"; fail=1
   elif ! grep -Fq "$expected" "$body"; then
     echo "FAIL $path has incorrect page body or title"; fail=1
+  elif [[ "$path" == "/" ]] && ! grep -Fq 'href="mailto:info@smatdesigns.com?subject=Project%20inquiry"' "$body"; then
+    echo "FAIL / main project inquiry CTA is not directly usable"; fail=1
+  elif [[ "$path" == "/software/" ]] && ! grep -Fq 'href="mailto:info@smatdesigns.com?subject=EzSeller%20software%20inquiry"' "$body"; then
+    echo "FAIL /software/ EzSeller inquiry CTA is not directly usable"; fail=1
+  elif [[ "$path" == "/contact/" ]] && ! grep -Fq 'href="mailto:info@smatdesigns.com?subject=SMAT%20Designs%20Inquiry"' "$body"; then
+    echo "FAIL /contact/ main inquiry CTA is not directly usable"; fail=1
   else
     echo "PASS $path status=200 revision=$REVISION"
   fi
