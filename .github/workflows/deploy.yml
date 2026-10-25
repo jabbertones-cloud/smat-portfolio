@@ -29,3 +29,5 @@ jobs:
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Verify published production website
         run: bash scripts/check_live_site.sh https://smatdesigns.com
+      - name: Audit production sitemap links, metadata and media
+        run: python3 scripts/audit_live_links.py --base https://smatdesigns.com
