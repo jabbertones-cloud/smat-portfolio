@@ -3,7 +3,7 @@ set -euo pipefail
 
 BASE="${1:-https://smatdesigns.com}"
 BASE="${BASE%/}"
-REVISION='2026-10-25-ahrefs-email-links'
+REVISION='2026-10-25-ahrefs-social-asset'
 
 # A 200 status is insufficient: old Pages setups can return the homepage
 # for every unknown path. Test distinct real page content and TLS as well.
@@ -71,6 +71,29 @@ aiscent_code="$(curl -sSL --max-time 20 -o /dev/null -w '%{http_code}' https://a
 if [[ "$aiscent_code" != "200" ]]; then echo "FAIL linked AiSCent homepage status=$aiscent_code"; fail=1; else echo "PASS linked AiSCent website"; fi
 image_headers="$(curl -sSI --max-time 15 "$BASE/images/skynpatch-grace-perfect.webp")"
 if ! echo "$image_headers" | grep -qi 'max-age=31536000, immutable'; then echo "FAIL image immutable cache"; fail=1; else echo "PASS immutable image cache"; fi
+
+# Social previews are non-clickable linked resources that ordinary href
+# scanners miss. Verify both metadata and actual image media type on production.
+og_url="https://smatdesigns.com/images/og-image.webp"
+og_target="$BASE/images/og-image.webp"
+homepage="$(curl -fsSL --max-time 20 "$BASE/" || true)"
+if ! echo "$homepage" | grep -Fq "content=\"$og_url\""; then
+  echo "FAIL homepage is missing the canonical Open Graph image"; fail=1
+fi
+og_headers="$(mktemp)"
+og_status="$(curl -sS -I -L --max-time 20 -o "$og_headers" -w '%{http_code}' "$og_target" || true)"
+if [[ "$og_status" != "200" ]] || ! grep -qi '^content-type: image/webp' "$og_headers"; then
+  echo "FAIL OG image status=$og_status or wrong image MIME"; fail=1
+else
+  echo "PASS homepage social preview image HTTP 200 image/webp"
+fi
+rm -f "$og_headers"
+unknown_status="$(curl -sS --max-time 15 -o /dev/null -w '%{http_code}' "$BASE/this-route-must-not-exist-20261025" || true)"
+if [[ "$unknown_status" != "404" ]]; then
+  echo "FAIL unknown routes must preserve their HTTP 404 (observed $unknown_status)"; fail=1
+else
+  echo "PASS intentional unknown-route HTTP 404"
+fi
 
 if [[ "$fail" -ne 0 ]]; then
   echo "HTTP route acceptance FAILED"
