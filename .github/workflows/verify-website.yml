@@ -6,6 +6,7 @@ on:
       - 'robots.txt'
       - 'sitemap.xml'
       - 'scripts/check_site.py'
+      - 'scripts/check_live_site.sh'
       - '.github/workflows/verify-website.yml'
   push:
     branches: [main]
@@ -14,11 +15,12 @@ on:
       - 'robots.txt'
       - 'sitemap.xml'
       - 'scripts/check_site.py'
+      - 'scripts/check_live_site.sh'
       - '.github/workflows/verify-website.yml'
   workflow_dispatch:
 jobs:
   static-site-contract:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, macOS, ARM64, smat-m1]
     permissions:
       contents: read
     steps:

@@ -5,6 +5,7 @@ No third-party Python dependencies or network calls. Production validation is se
 """
 from pathlib import Path
 from html.parser import HTMLParser
+import re
 from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -21,6 +22,8 @@ REQUIRED = {
  "a-plus-content/index.html": ["Enhanced Brand Content", "A+ Content", "Seller Central", "SkynPatch", "sm@smatdesigns.com"],
  "security/index.html": ["incident", "risk", "24 hours", "sm@smatdesigns.com", "Amazon"],
 }
+SITE_REVISION = "2026-10-25-ahrefs-email-links"
+MAILTO_ANCHOR = re.compile(r'<a\b[^>]*\bhref="mailto:[^"]+"[^>]*>.*?</a>', re.IGNORECASE | re.DOTALL)
 BANNED = ["calendly.com/smatdesigns", "Sarah Chen", "Marcus Johnson", "Elena Rodriguez",
           "formsubmit.co", "alert('Sign up flow would be here')", "0% rejection rate",
           "Best app", "#1 app", "ezamazon.smatdesigns.com", "aiscent.smatdesigns.com"]
@@ -57,6 +60,14 @@ def check():
   for banned in BANNED:
    if banned.lower() in content.lower(): errors.append(f"{rel}: forbidden copy {banned!r}")
   if '<link rel="canonical"' not in content: errors.append(f"{rel}: no canonical URL")
+  if f'<meta name="smat-site-revision" content="{SITE_REVISION}">' not in content:
+   errors.append(f"{rel}: incorrect public release marker")
+  for anchor in MAILTO_ANCHOR.finditer(content):
+   preceding = content[:anchor.start()].rstrip()
+   following = content[anchor.end():].lstrip()
+   if not preceding.endswith("<!--email_off-->") or not following.startswith("<!--/email_off-->"):
+    errors.append(f"{rel}: public mailto link is not shielded from Cloudflare HTML rewriting")
+
   if rel == "index.html" and ('.preloader' in content or 'heroTl' in content): errors.append("homepage is blocked by preloader or deferred hero")
   if rel == "software/index.html" and content.find('<section class="hero">') > content.find('id="service-separation"'): errors.append("software hero is buried after authorization copy")
   for url in p.links + p.images:
