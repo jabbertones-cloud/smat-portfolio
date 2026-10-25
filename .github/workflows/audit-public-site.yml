@@ -1,0 +1,24 @@
+name: Daily SMAT Designs production link audit
+
+on:
+  schedule:
+    - cron: "17 15 * * *" # 08:17 Phoenix, daily
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: smatdesigns-daily-public-links
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: [self-hosted, macOS, ARM64, smat-m1]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test live link audit rules
+        run: python3 -m unittest discover -s scripts -p 'test_live_links.py'
+      - name: Audit real production links and media
+        run: python3 scripts/audit_live_links.py --base https://smatdesigns.com
