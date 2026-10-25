@@ -77,7 +77,7 @@ if ! echo "$image_headers" | grep -qi 'max-age=31536000, immutable'; then echo "
 og_url="https://smatdesigns.com/images/og-image.webp"
 og_target="$BASE/images/og-image.webp"
 homepage="$(curl -fsSL --max-time 20 "$BASE/" || true)"
-if ! echo "$homepage" | grep -Fq "content=\"$og_url\""; then
+if ! grep -Fq "content=\"$og_url\"" <<< "$homepage"; then
   echo "FAIL homepage is missing the canonical Open Graph image"; fail=1
 fi
 og_headers="$(mktemp)"
