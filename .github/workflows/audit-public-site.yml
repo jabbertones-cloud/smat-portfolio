@@ -14,9 +14,17 @@ concurrency:
 
 jobs:
   audit:
-    runs-on: [self-hosted, macOS, ARM64, smat-m1]
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
+      - name: Require isolated GitHub standard runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "${RUNNER_ENVIRONMENT:-}" = "github-hosted"
+          test "${RUNNER_OS:-}" = "Linux"
+          test "${RUNNER_ARCH:-}" = "X64"
+          test "$(uname -s)" = "Linux"
       - uses: actions/checkout@v4
       - name: Test live link audit rules
         run: python3 -m unittest discover -s scripts -p 'test_live_links.py'

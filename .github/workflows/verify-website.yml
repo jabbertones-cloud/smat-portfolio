@@ -11,7 +11,7 @@ on:
       - 'scripts/check_live_site.sh'
       - 'scripts/build_share_image.py'
       - 'images/**'
-      - '.github/workflows/verify-website.yml'
+      - '.github/workflows/*.yml'
   push:
     branches: [main]
     paths:
@@ -24,15 +24,25 @@ on:
       - 'scripts/check_live_site.sh'
       - 'scripts/build_share_image.py'
       - 'images/**'
-      - '.github/workflows/verify-website.yml'
+      - '.github/workflows/*.yml'
   workflow_dispatch:
 jobs:
   static-site-contract:
-    runs-on: [self-hosted, macOS, ARM64, smat-m1]
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     steps:
+      - name: Require isolated GitHub standard runner
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "${RUNNER_ENVIRONMENT:-}" = "github-hosted"
+          test "${RUNNER_OS:-}" = "Linux"
+          test "${RUNNER_ARCH:-}" = "X64"
+          test "$(uname -s)" = "Linux"
       - uses: actions/checkout@v4
+      - name: Enforce free public-runner policy
+        run: python3 -m unittest discover -s scripts -p 'test_ci_public_runner_policy.py'
       - name: Verify business and software pages
         run: python3 scripts/check_site.py
       - name: Test production link audit classification
