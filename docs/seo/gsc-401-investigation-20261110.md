@@ -33,16 +33,29 @@ From a clean checkout of baseline main, `python3 scripts/check_site.py` passed. 
 
 On the investigation branch, `bash -n scripts/check_live_site.sh` passed. The updated live acceptance script returned exit code **1** with only the new known drift failing: `/hub/?probe=indexing-20261110` returned **404**, where the checked-in Worker promises **308** to `/hub?probe=indexing-20261110`. Both protected intelligence endpoints correctly returned **401** and passed the guard. This is a **red regression witness**, not a claim of a repaired production route.
 
+## Confirmed owner and production commit (Cloudflare read-only API)
+
+- Zone `smatdesigns.com` has an explicit Cloudflare Worker route `smatdesigns.com/hub*` bound to script `commerce-os` (route ID `41446eb2da794da28e73369ce4f39346`). Cloudflare [Worker routing documentation](https://developers.cloudflare.com/workers/configuration/routing/routes/) establishes that an assigned Worker executes for matched requests. This **preempts** the Pages `_worker.js` for `/hub*`.
+- Cloudflare Pages project `smatdesigns` latest successful production deployment ID `582ef35c-bca2-4dbd-91a7-136f4b2dbb8a`, created Nov. 1, reports commit `68ab54db5c9e206d03c0c1698c1c178f7fd4c095`, matching repository main. A stale Pages commit is **not** the identified cause of this Hub mismatch.
+- `/hub/` redirection must be repaired in the owning `commerce-os` Worker or an explicitly reviewed route change. A patch only to the Pages `_worker.js` cannot fix the currently shadowed request. The unprotected API 401 responses are separately forwarded through Pages and must remain protected.
+- Do not modify that Worker route from this portfolio audit. Its separate owner and release gates must be checked before any live change.
+
 ## Exact proposed source diff
 
-Only `scripts/check_live_site.sh` is changed. Added **24 lines** that (1) assert the checked-in `/hub/` canonical redirect and query string in actual HTTP responses, and (2) assert unauthenticated intelligence endpoints remain 401. No Worker routing, SEO metadata, public page content, credentials, middleware, or authentication code was modified.
+- `scripts/check_live_site.sh`: assert a query-preserving 308 from `/hub/` to `/hub` and preserve 401 responses on two intentionally private intelligence APIs.
+- `scripts/test_worker_routes.mjs`: Node's native test runner checks Pages Worker canonical redirect, static asset boundary, and upstream 401 forwarding with a synthetic upstream.
+- `.github/workflows/verify-website.yml`: run source Worker tests for changes to `_worker.js` and `_headers` and the worker test file.
+- `.github/workflows/deploy.yml`: run source Worker tests before publishing.
+- This investigation note: evidence and release gates. No production Worker routing, SEO metadata, public page content, credentials, or authentication code is modified.
+
+The source Worker unit test can be green while the live request is red because another Worker route owns the actual path. **Both gates are necessary.**
 
 ## Remaining gates
 
 1. Obtain the affected URLs from Search Console **Page indexing → Blocked due to unauthorized request (401)** for the Domain property. If a subdomain is affected, locate **that app's** repository and preserve its private endpoints.
-2. Identify the deployed Cloudflare Pages version and any edge routing/canonicalization rules serving `/hub/`; do **not** call the 404 fixed from the intended source code alone.
+2. Confirm the identified `smatdesigns.com/hub*` route's `commerce-os` Worker owner can implement a `/hub/` -> `/hub` redirect, then separately authorize and test that Worker release. Pages source changes alone are ineffective.
 3. Recover Ahrefs' ten noindex URLs through authorized Site Audit UI or an eligible plan. Compare exact URL lists with Search Console; the totals alone cannot establish overlap.
-4. Reproduce a **public page** with unwanted 401 before writing a production authentication/routing correction. Intentional private 401s should remain private.
+4. Reproduce a **public page** with unwanted 401 before writing a production authentication/routing correction. The observed 401 intelligence APIs are intentionally protected. Intentional private 401s should remain private.
 5. Re-run source unit tests, exact-head CI, the full live route audit and the negative test; request merge/deploy approval only after explaining any remaining red acceptance gate.
 
 ## Research receipts / limitations
