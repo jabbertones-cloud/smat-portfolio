@@ -3,12 +3,15 @@ on:
   pull_request:
     paths:
       - '**/*.html'
+      - '_worker.js'
+      - '_headers'
       - 'robots.txt'
       - 'sitemap.xml'
       - 'scripts/check_site.py'
       - 'scripts/audit_live_links.py'
       - 'scripts/test_live_links.py'
       - 'scripts/check_live_site.sh'
+      - 'scripts/test_worker_routes.mjs'
       - 'scripts/build_share_image.py'
       - 'images/**'
       - '.github/workflows/*.yml'
@@ -16,12 +19,15 @@ on:
     branches: [main]
     paths:
       - '**/*.html'
+      - '_worker.js'
+      - '_headers'
       - 'robots.txt'
       - 'sitemap.xml'
       - 'scripts/check_site.py'
       - 'scripts/audit_live_links.py'
       - 'scripts/test_live_links.py'
       - 'scripts/check_live_site.sh'
+      - 'scripts/test_worker_routes.mjs'
       - 'scripts/build_share_image.py'
       - 'images/**'
       - '.github/workflows/*.yml'
@@ -47,3 +53,5 @@ jobs:
         run: python3 scripts/check_site.py
       - name: Test production link audit classification
         run: python3 -m unittest discover -s scripts -p 'test_live_links.py'
+      - name: Verify canonical Worker routing and private API boundaries
+        run: node --test scripts/test_worker_routes.mjs
