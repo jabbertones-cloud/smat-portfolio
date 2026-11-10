@@ -17,7 +17,7 @@
 - The existing production auditor `python3 scripts/audit_live_links.py --base https://smatdesigns.com` found **9/9** sitemap pages, **19** unique internal resources, and **0 issues**. It checks canonical mismatches, HTTP failures and noindex/nofollow in both HTML and response headers.
 - Live Googlebot-user-agent GET checks returned **200** for the homepage, `/software/`, and the canonical Hub `/hub`; **301** for `www` to apex; **401** for two private intelligence API endpoints; **404** for `/hub/`. The nine sitemap HTML responses carry correct self-canonicals and index/follow metadata.
 - The API responses `/api/intelligence/hub-funnel` and `/api/intelligence/hub-conversions` return unauthenticated **401**, by design. These endpoints are absent from the sitemap. **Do not remove auth or publish private response bodies to satisfy a crawl report.**
-- A separately routed `/blog/` currently returns **404**, despite appearing in an older GSC search-performance row; there is no evidence whether this was intentionally retired or is an unwanted broken URL. The `/intent/` namespace is also a separately routed Cloudflare Worker, not a Pages static directory.
+- The `/blog/` URL currently returns **404**, despite appearing in an older GSC search-performance row; there is no evidence whether this was intentionally retired or is an unwanted broken URL. The `/intent/` namespace is also a separately routed Cloudflare Worker, not a Pages static directory.
 
 ## Confirmed separate routing mismatch
 
