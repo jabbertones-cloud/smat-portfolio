@@ -68,9 +68,10 @@ if [[ "$www_code" != "301" || "$www_location" != *"https://smatdesigns.com/"* ]]
   echo "FAIL www canonical redirect code=$www_code location=$www_location"; fail=1
 else echo "PASS www -> apex 301"; fi
 
-# Hub canonical route regressions: the source Worker promises /hub/ -> /hub.
-# Test an exact GET response without following redirects so a stale Pages
-# deployment cannot silently turn a public canonical URL into HTTP 404.
+# Canonical Hub route regression. Cloudflare has an overlapping
+# smatdesigns.com/hub* Worker route, so the upstream Worker must preserve the
+# redirect even when the Pages _worker.js is bypassed.
+# Do not follow redirects: verify the actual edge response and query string.
 hub_headers="$(mktemp)"
 hub_code="$(curl -sS --max-time 15 -o /dev/null -D "$hub_headers" -w '%{http_code}' "$BASE/hub/?probe=indexing-20261110" || true)"
 hub_location="$(awk 'tolower($1) == "location:" {gsub("\\r", "", $2); print $2; exit}' "$hub_headers")"
