@@ -67,6 +67,31 @@ www_location="$(curl -sSI --max-time 15 https://www.smatdesigns.com/ | tr -d '\r
 if [[ "$www_code" != "301" || "$www_location" != *"https://smatdesigns.com/"* ]]; then
   echo "FAIL www canonical redirect code=$www_code location=$www_location"; fail=1
 else echo "PASS www -> apex 301"; fi
+
+# Canonical Hub route regression. Cloudflare has an overlapping
+# smatdesigns.com/hub* Worker route, so the upstream Worker must preserve the
+# redirect even when the Pages _worker.js is bypassed.
+# Do not follow redirects: verify the actual edge response and query string.
+hub_headers="$(mktemp)"
+hub_code="$(curl -sS --max-time 15 -o /dev/null -D "$hub_headers" -w '%{http_code}' "$BASE/hub/?probe=indexing-20261110" || true)"
+hub_location="$(awk 'tolower($1) == "location:" {gsub("\\r", "", $2); print $2; exit}' "$hub_headers")"
+rm -f "$hub_headers"
+if [[ "$hub_code" != "308" || "$hub_location" != "$BASE/hub?probe=indexing-20261110" ]]; then
+  echo "FAIL /hub/ expected HTTP 308 to $BASE/hub with query preserved, got code=$hub_code location=$hub_location"; fail=1
+else
+  echo "PASS /hub/ -> /hub HTTP 308 with query preserved"
+fi
+
+# Intelligence endpoints are intentionally private. A search-crawler 401 here
+# is not a reason to publish merchant data or bypass authorization.
+for private_path in /api/intelligence/hub-funnel /api/intelligence/hub-conversions; do
+  private_code="$(curl -sS --max-time 15 -o /dev/null -w '%{http_code}' "$BASE$private_path" || true)"
+  if [[ "$private_code" != "401" ]]; then
+    echo "FAIL private $private_path expected HTTP 401, got $private_code"; fail=1
+  else
+    echo "PASS protected $private_path HTTP 401"
+  fi
+done
 aiscent_code="$(curl -sSL --max-time 20 -o /dev/null -w '%{http_code}' https://aiscentmcp.com/ || true)"
 if [[ "$aiscent_code" != "200" ]]; then echo "FAIL linked AiSCent homepage status=$aiscent_code"; fail=1; else echo "PASS linked AiSCent website"; fi
 image_headers="$(curl -sSI --max-time 15 "$BASE/images/skynpatch-grace-perfect.webp")"
