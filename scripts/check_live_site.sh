@@ -7,7 +7,7 @@ REVISION='2026-10-25-ahrefs-social-asset'
 
 # A 200 status is insufficient: old Pages setups can return the homepage
 # for every unknown path. Test distinct real page content and TLS as well.
-paths=("/" "/software/" "/services/" "/case-studies/" "/contact/" "/privacy/" "/terms/" "/a-plus-content/" "/security/")
+paths=("/" "/software/" "/services/" "/case-studies/" "/contact/" "/privacy/" "/terms/" "/a-plus-content/" "/security/" "/brands/zit-happens/")
 # The expected title text differs for every page, preventing fallback 200s from passing.
 needles=(
   "SMAT Designs | Software, Ecommerce & Design Studio"
@@ -19,6 +19,7 @@ needles=(
   "Terms of Service"
   "Amazon A+ Content Services"
   "Security and Incident Reporting"
+  "Zit Happens | Beauty Accessories"
 )
 
 fail=0
