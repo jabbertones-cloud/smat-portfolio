@@ -10,7 +10,7 @@ from urllib.parse import urlsplit
 
 ROOT = Path(__file__).resolve().parent.parent
 PAGES = ["index.html", "software/index.html", "services/index.html", "case-studies/index.html",
-         "contact/index.html", "privacy/index.html", "terms/index.html", "a-plus-content/index.html", "security/index.html"]
+         "contact/index.html", "privacy/index.html", "terms/index.html", "a-plus-content/index.html", "security/index.html", "brands/zit-happens/index.html"]
 REQUIRED = {
  "index.html": ["SMAT Designs", "EzSeller", "AiSCent", "info@smatdesigns.com"],
  "software/index.html": ["EzSeller", "AiSCent", "LocalizeShots", "$39", "$99", "$249", "Amazon", "authorization", "WWDC MCP", "ezseller.smatdesigns.com", "aiscentmcp.com", "wwdcmcp.smatdesigns.com"],
@@ -21,6 +21,7 @@ REQUIRED = {
  "terms/index.html": ["Terms", "pricing", "Amazon", "Privacy"],
  "a-plus-content/index.html": ["Enhanced Brand Content", "A+ Content", "Seller Central", "SkynPatch", "sm@smatdesigns.com"],
  "security/index.html": ["incident", "risk", "24 hours", "sm@smatdesigns.com", "Amazon"],
+ "brands/zit-happens/index.html": ["Zit Happens", "Killa Bunny", "Plushtrap", "info@smatdesigns.com"],
 }
 SITE_REVISION = "2026-10-25-ahrefs-social-asset"
 CSS_URL = re.compile(r'url\(\s*[\"\']?([^\)\"\'\s]+)')
@@ -89,7 +90,7 @@ def check():
    if not preceding.endswith("<!--email_off-->") or not following.startswith("<!--/email_off-->"):
     errors.append(f"{rel}: public mailto link is not shielded from Cloudflare HTML rewriting")
 
-  canonical_url = "https://smatdesigns.com/" + (rel.split("/")[0] + "/" if rel != "index.html" else "")
+  canonical_url = "https://smatdesigns.com/" + (rel[:-len("index.html")] if rel != "index.html" else "")
   if p.og_images != ["https://smatdesigns.com/images/og-image.webp"]:
    errors.append(f"{rel}: incomplete or missing canonical Open Graph image")
   if '<meta name="twitter:image" content="https://smatdesigns.com/images/og-image.webp">' not in content:

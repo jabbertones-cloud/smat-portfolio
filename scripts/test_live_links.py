@@ -69,7 +69,7 @@ class AuditTests(TestCase):
         with patch("audit_live_links.http_get", side_effect=self.provider()), redirect_stdout(io.StringIO()) as output:
             self.assertEqual(run(BASE), 0)
         self.assertIn('"issues": []', output.getvalue())
-        self.assertIn('"preconnect_hints_ignored": 9', output.getvalue())
+        self.assertIn('"preconnect_hints_ignored": 10', output.getvalue())
 
     def test_disguised_image_and_noindex_fail(self):
         normal = self.provider()
