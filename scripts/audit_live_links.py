@@ -28,6 +28,7 @@ SKIP_SCHEMES = ("mailto:", "tel:", "data:", "blob:", "javascript:")
 EXPECTED_PATHS = {
     "/", "/software/", "/services/", "/case-studies/", "/contact/",
     "/a-plus-content/", "/security/", "/privacy/", "/terms/",
+    "/brands/zit-happens/",
 }
 
 
