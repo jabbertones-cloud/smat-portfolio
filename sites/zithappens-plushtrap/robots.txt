@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zithappens.plushtrap.com/sitemap.xml
