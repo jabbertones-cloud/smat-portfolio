@@ -29,6 +29,8 @@ jobs:
         run: python3 -m unittest discover -s scripts -p 'test_ci_public_runner_policy.py'
       - name: Check website before deployment
         run: python3 scripts/check_site.py
+      - name: Verify Worker forwarding before deployment
+        run: node --test scripts/test_worker_routes.mjs
       - name: Deploy with supported Cloudflare Wrangler action
         id: deploy
         uses: cloudflare/wrangler-action@v4
