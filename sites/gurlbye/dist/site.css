@@ -1,0 +1,288 @@
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; font-family: Arial, Helvetica, sans-serif; }
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ---------- HOME ROOM ---------- */
+  .room { position: relative; width: 100%; line-height: 0; }
+  .room .bg { width: 100%; height: auto; display: block; }
+  .btn {
+    position: absolute; display: block; line-height: 0; z-index: 2;
+    transition: transform 0.25s ease, filter 0.25s ease;
+  }
+  .btn img { width: 100%; height: auto; display: block; }
+  .btn:hover, .btn:focus {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 18px rgba(255, 47, 146, 0.9));
+    z-index: 5; outline: none;
+  }
+  .btn .tip {
+    position: absolute; left: 50%; bottom: calc(100% + 10px);
+    transform: translateX(-50%) translateY(4px);
+    background: #ff2f92; color: #fff; border: 2px solid #fff; border-radius: 999px;
+    padding: 6px 16px; font-size: clamp(12px, 1.4vw, 26px); font-weight: bold;
+    letter-spacing: 0.5px; white-space: nowrap; line-height: 1;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.45); z-index: 6;
+  }
+  .btn:hover .tip, .btn:focus .tip { opacity: 1; transform: translateX(-50%) translateY(0); }
+  .btn-gurl-gang { left: 45.525%; top: 12.477%; width: 5.931%; }
+  .btn-music     { left: 20.447%; top: 18.762%; width: 10.198%; }
+  .btn-video     { left: 36.160%; top: 69.963%; width: 17.794%; }
+  .btn-merch     { left: 66.961%; top: 58.133%; width: 11.863%; }
+
+  /* ---------- FULL WIDTH IMAGE PAGES + GURL GANG STAGE ---------- */
+  .stage { position: relative; width: 100%; line-height: 0; }
+  .stage .bg { width: 100%; height: auto; display: block; }
+  .stage > img:only-child { width: 100%; height: auto; display: block; }
+
+  /* ---------- GURL GANG FORM ---------- */
+  .fill-spaces { position: absolute; left: 30.9%; top: 32.2%; width: 38.3%; height: auto; display: block; }
+  .field {
+    position: absolute; left: 36%; width: 28%; height: 5.5%;
+    background: transparent; border: none; outline: none; color: #fff;
+    text-align: center; font-family: Arial, Helvetica, sans-serif;
+    font-size: clamp(11px, 1.5vw, 24px); letter-spacing: 3px; line-height: 1.2; z-index: 3;
+  }
+  .field::placeholder { color: #fff; opacity: 1; }
+  .field-name  { top: 35.5%; }
+  .field-email { top: 44.0%; }
+  .field-phone { top: 51.9%; }
+  .join-btn {
+    position: absolute; left: 31.3%; top: 58.4%; width: 37.4%;
+    background: none; border: none; padding: 0; cursor: pointer; line-height: 0;
+    transition: transform 0.25s ease, filter 0.25s ease; z-index: 3;
+  }
+  .join-btn img { width: 100%; height: auto; display: block; }
+  .join-btn:hover, .join-btn:focus {
+    transform: scale(1.06); filter: drop-shadow(0 0 18px rgba(255, 47, 146, 0.9)); outline: none;
+  }
+  .welcome {
+    position: absolute; left: 29%; top: 40%; width: 42%;
+    background: #ff2f92; border: 3px solid #fff; border-radius: 999px; color: #fff;
+    text-align: center; font-size: clamp(16px, 2.2vw, 36px); font-weight: bold;
+    letter-spacing: 1px; line-height: 1.25; padding: 18px 22px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5); display: none; z-index: 4;
+  }
+
+  /* ---------- VIDEOS PAGE: click spots over the screen nav ---------- */
+  .hot {
+    position: absolute; top: 19.5%; height: 5.0%;
+    display: block; border-radius: 6px; z-index: 2;
+  }
+  .hot:hover, .hot:focus { background: rgba(255, 47, 146, 0.35); outline: 2px solid #ff2f92; }
+  .hot-home  { left: 28.0%; width: 5.5%; }
+  .hot-music { left: 35.0%; width: 5.5%; }
+  .hot-videos{ left: 41.8%; width: 6.2%; }
+  .hot-gang  { left: 49.2%; width: 8.2%; }
+  .hot-merch { left: 58.2%; width: 5.8%; }
+
+  /* ---------- BOTTOM NAV BANNER (all pages) ---------- */
+  .nav-banner {
+    background: #000; width: 100%; min-height: 76px;
+    display: flex; align-items: center; padding: 8px 24px; line-height: 1.2;
+  }
+  .nav-banner .nav-logo { flex: 0 0 auto; display: block; line-height: 0; }
+  .nav-banner .nav-logo img { height: 58px; width: auto; display: block; }
+  .nav-banner nav {
+    flex: 1 1 auto; display: flex; justify-content: center; align-items: center;
+    flex-wrap: wrap; gap: 12px 54px; padding-right: 150px;
+  }
+  .nav-banner nav a {
+    color: #fff; text-decoration: none; font-size: 30px; letter-spacing: 0.5px; white-space: nowrap;
+  }
+  .nav-banner nav a:hover, .nav-banner nav a:focus { color: #ff5da2; outline: none; }
+  .nav-banner nav a.active { color: #ff5da2; }
+  @media (max-width: 900px) {
+    .nav-banner { flex-direction: column; padding: 12px; gap: 10px; }
+    .nav-banner nav { padding-right: 0; gap: 8px 26px; }
+    .nav-banner nav a { font-size: 22px; }
+    .nav-banner .nav-logo img { height: 46px; }
+    .field { letter-spacing: 1px; }
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  img { max-width: 100%; }
+
+  /* tablets and small laptops: banner stacks, logo on top, links wrap under it */
+  @media (max-width: 900px) {
+    .nav-banner nav a { padding: 8px 6px; }
+    .welcome { left: 20%; width: 60%; }
+  }
+
+  /* phones */
+  @media (max-width: 640px) {
+    /* bottom banner: smaller logo, links in 2 tidy rows with real tap size */
+    .nav-banner { min-height: 0; gap: 6px; }
+    .nav-banner .nav-logo img { height: 42px; }
+    .nav-banner nav { gap: 2px 14px; }
+    .nav-banner nav a { font-size: 19px; padding: 7px 5px; }
+
+    /* home: name pop ups sized for a small screen */
+    .btn .tip { font-size: 11px; padding: 4px 10px; border-width: 1px; bottom: calc(100% + 5px); }
+
+    /* gurl gang: type boxes get taller and wider so fingers and words fit.
+       The middle of each box stays on the middle of its bar. */
+    .field { left: 32.5%; width: 35%; height: 8%; font-size: 10px; letter-spacing: 0.5px; }
+    .field-name  { top: 34.25%; }
+    .field-email { top: 42.75%; }
+    .field-phone { top: 50.65%; }
+    .welcome { left: 10%; width: 80%; top: 37%; padding: 12px 14px; }
+
+    /* videos: bigger tap spots over the words in the laptop screen */
+    .hot { top: 17.5%; height: 8.5%; }
+  }
+
+  /* very small phones */
+  @media (max-width: 380px) {
+    .nav-banner nav a { font-size: 16px; }
+    .field { font-size: 8.5px; }
+  }
+
+  /* touch screens have no hover: use press feedback instead of grow on hover */
+  @media (hover: none) {
+    .btn:active { transform: scale(1.15); filter: drop-shadow(0 0 18px rgba(255, 47, 146, 0.9)); }
+    .join-btn:active { transform: scale(1.06); }
+  }
+
+
+/* Micro-interactions run on their own, not just on mouseover. */
+@keyframes gbScene { from { opacity: .62; filter: brightness(.91); } to { opacity: 1; filter: brightness(1); } }
+@keyframes gbFloat { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-3px) } }
+@keyframes gbGlow { 0%,100% { filter: drop-shadow(0 0 0 rgba(255,47,146,0)) } 50% { filter: drop-shadow(0 0 14px rgba(255,47,146,.65)) } }
+@keyframes gbRoomLight { 0%,100% { filter: brightness(1) } 50% { filter: brightness(1.045) } }
+@keyframes gbNavIn { from { opacity:0; transform: translateY(5px) } to { opacity:1; transform:translateY(0) } }
+.page.active { animation: gbScene .65s ease-out both; }
+.page.active .nav-banner { animation: gbNavIn .7s .2s ease both; }
+.page.active .room > .bg { animation: gbRoomLight 9s ease-in-out infinite; }
+.btn img { animation: gbGlow 5s ease-in-out infinite; will-change:filter; }
+.btn-music img { animation-delay: -1.4s; animation-duration: 6.4s; }
+.btn-video img { animation-delay: -2.6s; animation-duration: 5.9s; }
+.btn-merch img { animation-delay: -3.2s; animation-duration: 7.1s; }
+.fill-spaces { animation: gbFloat 7.5s ease-in-out infinite; }
+.join-btn img { animation: gbGlow 3.6s ease-in-out infinite; }
+.nav-banner .nav-logo img { animation: gbGlow 8s -2s ease-in-out infinite; }
+.field:focus-visible, .join-btn:focus-visible, .btn:focus-visible { outline: 3px solid #ff6bb1; outline-offset: 3px; }
+.join-status { position:absolute; left:30%; top:70%; width:40%; z-index:5; color:#fff;
+ text-align:center; font:bold clamp(10px,1.25vw,18px)/1.4 Arial,sans-serif;
+ text-shadow:0 2px 5px #000; }
+.join-privacy { position:absolute; left:28%; top:75%; width:44%; z-index:4; color:#fff;
+ text-align:center; font:normal clamp(9px,1vw,14px)/1.4 Arial,sans-serif;
+ text-shadow:0 2px 4px #000; }
+.join-privacy a { color:#fff; text-decoration:underline; }
+.signup-trap { position:absolute; left:-10000px; opacity:0; pointer-events:none; }
+.join-btn[disabled] { cursor:progress; opacity:.75; }
+@media (max-width: 600px) {
+ .join-status { top:70%; left:19%; width:62%; font-size:11px; }
+ .join-privacy { top:77%; left:19%; width:62%; font-size:9px; }
+}
+@media (prefers-reduced-motion:reduce) {
+ .page.active, .page.active .nav-banner, .page.active .room > .bg, .btn img, .join-btn img,
+ .fill-spaces, .nav-banner .nav-logo img { animation:none !important; transition:none !important; }
+}
+
+
+/* Give the original illustrated Gurl Gang form proper touch-sized controls on phones. */
+@media (max-width:640px) {
+  #page-gurl-gang .stage {
+    padding-bottom:330px;
+    background:radial-gradient(circle at 50% 75%,#2e112f 0%,#09060e 78%);
+  }
+  #page-gurl-gang .fill-spaces { display:none; }
+  #page-gurl-gang .field {
+    left:8%; width:84%; height:44px; min-height:44px;
+    background:rgba(20,10,33,.94); border:1px solid #fb75b4;
+    border-radius:9px; color:#fff; text-align:left; padding:0 13px;
+    font-size:14px; letter-spacing:.05em; line-height:normal; box-sizing:border-box;
+  }
+  #page-gurl-gang .field-name { top:calc(100% - 289px); }
+  #page-gurl-gang .field-email { top:calc(100% - 236px); }
+  #page-gurl-gang .field-phone { top:calc(100% - 183px); }
+  #page-gurl-gang .join-btn {
+    left:8%; width:84%; height:50px; min-height:50px;
+    top:calc(100% - 126px); border:2px solid #ff5da2;
+    border-radius:14px; background:rgba(255,47,146,.2);
+    box-sizing:border-box;
+  }
+  #page-gurl-gang .join-btn img { width:100%; height:100%; object-fit:contain; }
+  #page-gurl-gang .join-status {
+    left:8%; width:84%; top:calc(100% - 67px); font-size:12px;
+  }
+  #page-gurl-gang .join-privacy {
+    left:8%; width:84%; top:calc(100% - 37px); font-size:10px;
+    line-height:1.25;
+  }
+  #page-gurl-gang .welcome {
+    left:7%; width:86%; top:calc(100% - 235px);
+    border-radius:18px; padding:17px 12px; font-size:18px;
+  }
+  .nav-banner nav a { display:inline-flex; align-items:center; min-height:44px; box-sizing:border-box; }
+  .btn::after { content:""; position:absolute; inset:-11px; border-radius:18px; }
+}
+
+
+/* ========== MOBILE PAGES (added 2026-11-05, mobile-only deploy) ==========
+   Everything above is the live desktop CSS, untouched.
+   The mobile stages only appear at 640px and under. */
+.mobile-stage { display: none; }
+@media (max-width: 640px) {
+  .desktop-stage { display: none !important; }
+  .mobile-stage { display: block; position: relative; width: 100%; line-height: 0; }
+  .mobile-stage .bg { width: 100%; height: auto; display: block; }
+  .mobile-stage video.bg { width: 100%; height: auto; display: block; background: #fff; }
+
+  /* home: same 4 room buttons, positions measured from her mobile art */
+  .m-btn-gang  { left: 46.58%; top: 23.52%; width: 19.13%; }
+  .m-btn-music { left: 4.30%;  top: 26.43%; width: 19.04%; }
+  .m-btn-video { left: 18.99%; top: 74.92%; width: 36.74%; }
+  .m-btn-merch { left: 62.48%; top: 63.48%; width: 26.25%; }
+
+  /* gurl gang form: bars + join measured from her placement mock.
+     ID-scoped so they win over the desktop stage's phone rules above. */
+  .m-fill { position: absolute; left: 6.2%; top: 3.91%; width: 87.5%; height: 17.97%; object-fit: fill; display: block; }
+  #page-gurl-gang .mobile-stage .m-field { left: 15%; width: 70%; height: 5%; min-height: 0; background: transparent; border: none; border-radius: 0; color: #fff; text-align: center; padding: 0; font-size: 12px; letter-spacing: 1px; line-height: 1.2; }
+  #page-gurl-gang .mobile-stage .m-field-name  { top: 4.38%; }
+  #page-gurl-gang .mobile-stage .m-field-email { top: 10.63%; }
+  #page-gurl-gang .mobile-stage .m-field-phone { top: 16.77%; }
+  #page-gurl-gang .mobile-stage .m-join-btn { left: 5.83%; top: 22.40%; width: 88.43%; height: 5.99%; min-height: 0; background: none; border: none; border-radius: 0; }
+  #page-gurl-gang .mobile-stage .m-join-btn img { width: 100%; height: 100%; object-fit: fill; }
+  .m-join-status { position: absolute; left: 7%; width: 86%; top: 29.2%; z-index: 5; color: #fff; text-align: center; font: bold 12px/1.35 Arial, sans-serif; text-shadow: 0 2px 5px #000; line-height: 1.35; }
+  .m-join-privacy { position: absolute; left: 7%; width: 86%; top: 32.2%; z-index: 4; color: #fff; text-align: center; font: normal 10px/1.3 Arial, sans-serif; text-shadow: 0 2px 4px #000; line-height: 1.3; }
+  .m-join-privacy a { color: #fff; text-decoration: underline; }
+  .m-welcome { left: 7%; width: 86%; top: 31%; padding: 12px 14px; }
+
+  /* navigation bar: SAME bar as desktop, one row, logo left, links centered.
+     Only shrunk to fit the phone width, layout and look unchanged. */
+  .nav-banner { flex-direction: row; flex-wrap: nowrap; min-height: 0; padding: 6px 8px; gap: 6px; align-items: center; }
+  .nav-banner .nav-logo img { height: 26px; }
+  .nav-banner nav { flex: 1 1 auto; flex-wrap: nowrap; justify-content: center; gap: 4px 10px; padding-right: 0; }
+  .nav-banner nav a { font-size: 12px; padding: 4px 2px; letter-spacing: 0; }
+}
+@media (max-width: 380px) {
+  .nav-banner nav { gap: 4px 7px; }
+  .nav-banner nav a { font-size: 11px; }
+  #page-gurl-gang .mobile-stage .m-field { font-size: 10.5px; }
+}
+
+/* ============ TV VIDEO SOUND BUTTON (added with the desktop TV video) ============ */
+.gb-sound-btn { position: absolute; right: 14px; bottom: 14px; z-index: 30; font: inherit; font-weight: 700; font-size: 15px; line-height: 1.2; letter-spacing: .02em; color: #fff; background: rgba(255, 77, 166, .94); border: 2px solid #fff; border-radius: 999px; padding: 9px 18px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.35); }
+.gb-sound-btn:hover { filter: brightness(1.08); }
+.gb-sound-btn.on { background: #14100f; }
+video.gb-tv { cursor: pointer; }
+@media (max-width: 640px) { .gb-sound-btn { font-size: 13px; padding: 8px 14px; right: 10px; bottom: 10px; } }
+
+/* ============ MOBILE WELCOME PLACEMENT (fix) ============
+   After a phone signup, the pink welcome box goes in the blank space at
+   the top of the page where the form was — not over the photos below. */
+@media (max-width: 640px) {
+  #page-gurl-gang .mobile-stage .m-welcome { top: 9.5%; }
+}
+
+/* 280px viewport: preserve all five nav links without off-screen content. */
+@media (max-width: 320px) {
+  .nav-banner { flex-direction: column; align-items: center; padding: 6px 8px; }
+  .nav-banner nav { flex: 0 1 auto; width: 100%; min-width: 0; flex-wrap: wrap; justify-content: center; gap: 0 8px; }
+  .nav-banner nav a { min-height: 44px; }
+}
