@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>gurlbye | Enter the Gurl Gang</title>
+<meta name="description" content="Step into the world of gurlbye. Explore music, videos, merch, and the Gurl Gang.">
+<link rel="canonical" href="https://gurlbye.smatdesigns.com/">
+<meta property="og:title" content="gurlbye | Enter the Gurl Gang">
+<meta property="og:description" content="Come in. Explore the world of gurlbye.">
+<meta property="og:url" content="https://gurlbye.smatdesigns.com/">
+<link rel="icon" type="image/png" href="/assets/art-65b58360bd6f270f872e.png">
+<link rel="preload" as="image" fetchpriority="high" href="/assets/art-7eb0602e3e01d21341bd.jpg">
+<link rel="stylesheet" href="/site.css">
+</head>
+<body>
+<main id="content">
+
+  <section id="page-home" class="page active">
+<!-- ROOM: blank background + 4 clickable objects on top -->
+  <div class="room desktop-stage">
+    <img class="bg" src="/assets/art-7eb0602e3e01d21341bd.jpg" alt="gurlbye room">
+
+    <a class="btn btn-gurl-gang" href="#gurl-gang" title="Gurl Gang">
+      <img src="/assets/art-e6b6269c8e4ed183a170.png" alt="Gurl Gang">
+      <span class="tip">Gurl Gang</span>
+    </a>
+
+    <a class="btn btn-music" href="#music" title="Music">
+      <img src="/assets/art-9754f9edaf0f374c31a7.png" alt="Music - Pretty. Unstable.">
+      <span class="tip">Music</span>
+    </a>
+
+    <a class="btn btn-video" href="#videos" title="Videos">
+      <img src="/assets/art-d9bc0e5cf6166e4a9072.png" alt="Videos">
+      <span class="tip">Videos</span>
+    </a>
+
+    <a class="btn btn-merch" href="#merch" title="Merch">
+      <img src="/assets/art-d2ec087dc3913f7af53f.png" alt="Merch">
+      <span class="tip">Merch</span>
+    </a>
+  </div>
+
+
+  <!-- MOBILE HOME (portrait art, mobile only) -->
+  <div class="mobile-stage">
+    <img class="bg" src="/assets/mobile-home.jpg" alt="gurlbye room">
+    <a class="btn m-btn m-btn-gang" href="#gurl-gang" title="Gurl Gang">
+      <img src="/assets/mobile-btn-gang.png" alt="Gurl Gang">
+      <span class="tip">Gurl Gang</span>
+    </a>
+    <a class="btn m-btn m-btn-music" href="#music" title="Music">
+      <img src="/assets/mobile-btn-music.png" alt="Music - Pretty. Unstable.">
+      <span class="tip">Music</span>
+    </a>
+    <a class="btn m-btn m-btn-video" href="#videos" title="Videos">
+      <img src="/assets/mobile-btn-video.png" alt="Videos">
+      <span class="tip">Videos</span>
+    </a>
+    <a class="btn m-btn m-btn-merch" href="#merch" title="Merch">
+      <img src="/assets/mobile-btn-merch.png" alt="Merch">
+      <span class="tip">Merch</span>
+    </a>
+  </div>
+  <!-- BOTTOM NAVIGATION BANNER -->
+  <div class="nav-banner">
+    <a class="nav-logo" href="#home">
+      <img src="/assets/art-65b58360bd6f270f872e.png" alt="gurlbye">
+    </a>
+    <nav>
+      <a href="#home" class="active">Home</a>
+      <a href="#gurl-gang">Gurl Gang</a>
+      <a href="#music">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="#merch">Merch</a>
+    </nav>
+  </div>
+  </section>
+
+  <section id="page-gurl-gang" class="page">
+<div class="stage desktop-stage">
+    <img class="bg" src="/assets/art-8a320e2690d766eb03c6.jpg" alt="Gurl Gang polaroids" loading="lazy" decoding="async">
+    <img class="fill-spaces" id="fillSpaces" src="/assets/art-1f33d01c7264c1e4fb18.png" alt="" loading="lazy" decoding="async">
+
+    <form id="joinForm" action="/api/join" method="post">
+      <input class="field field-name" id="fName" type="text" name="name" placeholder="ENTER NAME" autocomplete="name" maxlength="100" required aria-label="Your name">
+      <input class="field field-email" id="fEmail" type="email" name="email" placeholder="ENTER EMAIL" autocomplete="email" maxlength="254" required aria-label="Your email">
+      <input class="field field-phone" id="fPhone" type="tel" name="phone" placeholder="ENTER PHONE NUMBER" autocomplete="tel" maxlength="32" required aria-label="Your phone number">
+      <div class="signup-trap" aria-hidden="true"><label>Leave blank<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <button class="join-btn" type="submit" title="Join the Gurl Gang">
+        <img src="/assets/art-30cfa7df0aec0ff6552b.png" alt="Join the Gurl Gang" loading="lazy" decoding="async">
+      </button>
+    </form>
+    <p class="join-status" id="joinStatus" role="status" aria-live="polite"></p>
+    <p class="join-privacy">Your details are used for Gurl Gang registration. <a href="https://smatdesigns.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>.</p>
+
+
+    <div class="welcome" id="welcomeMsg"></div>
+  </div>
+
+
+  <!-- MOBILE GURL GANG (portrait art, mobile only) -->
+  <div class="mobile-stage">
+    <img class="bg" src="/assets/mobile-gurl-gang.jpg" alt="Gurl Gang polaroids">
+    <img class="m-fill" id="mFillSpaces" src="/assets/mobile-fill.png" alt="">
+    <form id="mJoinForm" action="/api/join" method="post">
+      <input class="field m-field m-field-name" id="mFName" type="text" name="name" placeholder="ENTER NAME" autocomplete="name" maxlength="100" required aria-label="Your name">
+      <input class="field m-field m-field-email" id="mFEmail" type="email" name="email" placeholder="ENTER EMAIL" autocomplete="email" maxlength="254" required aria-label="Your email">
+      <input class="field m-field m-field-phone" id="mFPhone" type="tel" name="phone" placeholder="ENTER PHONE NUMBER" autocomplete="tel" maxlength="32" required aria-label="Your phone number">
+      <div class="signup-trap" aria-hidden="true"><label>Leave blank<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+      <button class="join-btn m-join-btn" type="submit" title="Join the Gurl Gang">
+        <img src="/assets/mobile-join.png" alt="Join the Gurl Gang">
+      </button>
+    </form>
+    <p class="m-join-status" id="mJoinStatus" role="status" aria-live="polite"></p>
+    <p class="m-join-privacy">Your details are used for Gurl Gang registration. <a href="https://smatdesigns.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>.</p>
+    <div class="welcome m-welcome" id="mWelcomeMsg"></div>
+  </div>
+  <!-- BOTTOM NAVIGATION BANNER -->
+  <div class="nav-banner">
+    <a class="nav-logo" href="#home">
+      <img src="/assets/art-65b58360bd6f270f872e.png" alt="gurlbye" loading="lazy" decoding="async">
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#gurl-gang" class="active">Gurl Gang</a>
+      <a href="#music">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="#merch">Merch</a>
+    </nav>
+  </div>
+  </section>
+
+  <section id="page-music" class="page">
+<div class="stage desktop-stage">
+    <img src="/assets/art-65b07c3bcd0d44db07c3.jpg" alt="gurlbye music player - Pretty. Unstable. EP, releasing November 13th" loading="lazy" decoding="async">
+  </div>
+
+
+  <!-- MOBILE MUSIC (portrait art, mobile only) -->
+  <div class="mobile-stage">
+    <img class="bg" src="/assets/mobile-music.jpg" alt="gurlbye music player - Pretty. Unstable. EP, releasing November 13th" loading="lazy" decoding="async">
+  </div>
+  <!-- BOTTOM NAVIGATION BANNER -->
+  <div class="nav-banner">
+    <a class="nav-logo" href="#home">
+      <img src="/assets/art-65b58360bd6f270f872e.png" alt="gurlbye" loading="lazy" decoding="async">
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#gurl-gang">Gurl Gang</a>
+      <a href="#music" class="active">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="#merch">Merch</a>
+    </nav>
+  </div>
+  </section>
+
+  <section id="page-videos" class="page">
+<div class="stage desktop-stage">
+    <video class="bg gb-tv" src="/assets/desktop-videos.mp4" poster="/assets/desktop-videos-poster.jpg" autoplay muted loop playsinline></video>
+    <button class="gb-sound-btn" type="button" aria-pressed="false">&#128266; Tap for sound</button>
+  </div>
+
+
+  <!-- MOBILE VIDEOS (her TV static video, mobile only) -->
+  <div class="mobile-stage">
+    <video class="bg gb-tv" src="/assets/mobile-videos.mp4" poster="/assets/mobile-videos-poster.jpg" autoplay muted loop playsinline></video>
+    <button class="gb-sound-btn" type="button" aria-pressed="false">&#128266; Tap for sound</button>
+  </div>
+  <!-- BOTTOM NAVIGATION BANNER -->
+  <div class="nav-banner">
+    <a class="nav-logo" href="#home">
+      <img src="/assets/art-65b58360bd6f270f872e.png" alt="gurlbye" loading="lazy" decoding="async">
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#gurl-gang">Gurl Gang</a>
+      <a href="#music">Music</a>
+      <a href="#videos" class="active">Videos</a>
+      <a href="#merch">Merch</a>
+    </nav>
+  </div>
+  </section>
+
+  <section id="page-merch" class="page">
+<div class="stage desktop-stage">
+    <img src="/assets/art-f8f18a5402bfe0ea00b3.jpg" alt="gurlbye merch closet - Coming Soon" loading="lazy" decoding="async">
+  </div>
+
+
+  <!-- MOBILE MERCH (portrait art, mobile only) -->
+  <div class="mobile-stage">
+    <img class="bg" src="/assets/mobile-merch.jpg" alt="gurlbye merch closet - Coming Soon" loading="lazy" decoding="async">
+  </div>
+  <!-- BOTTOM NAVIGATION BANNER -->
+  <div class="nav-banner">
+    <a class="nav-logo" href="#home">
+      <img src="/assets/art-65b58360bd6f270f872e.png" alt="gurlbye" loading="lazy" decoding="async">
+    </a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#gurl-gang">Gurl Gang</a>
+      <a href="#music">Music</a>
+      <a href="#videos">Videos</a>
+      <a href="#merch" class="active">Merch</a>
+    </nav>
+  </div>
+  </section>
+
+</main>
+<script defer src="/site.js"></script>
+</body>
+</html>
