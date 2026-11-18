@@ -1,0 +1,3 @@
+# Preserve byte-exact pinned third-party distribution bundles and original license EOLs.
+assets/vendor/*.min.js -text -diff
+docs/licenses/lenis-1.1.18-MIT.txt -text -diff
